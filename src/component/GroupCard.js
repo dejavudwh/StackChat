@@ -15,7 +15,7 @@ const useStyle = makeStyles(theme => ({
     padding: '0px',
     width: 82,
     height: 101,
-    backgroundColor: 'rgba(238, 233, 233)',
+    backgroundColor: 'rgba(225, 223, 222)',
   },
   AvatarText: {
     margin: '15px 5px',
