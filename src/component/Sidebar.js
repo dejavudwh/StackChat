@@ -3,6 +3,7 @@ import { Paper, Divider } from '@material-ui/core';
 import { withStyles } from '@material-ui/core/styles';
 import ShareBox from './ShareBox.js';
 import Notification from './Notification.js'
+import Control from './Control.js'
 
 const styles = {
   root: {
@@ -22,6 +23,7 @@ class Sidebar extends React.Component {
         <ShareBox></ShareBox>
         <Divider></Divider>
         <Notification></Notification>
+        <Control></Control>
       </Paper>
     );
   };

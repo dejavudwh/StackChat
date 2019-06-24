@@ -19,7 +19,7 @@ const useStyles = makeStyles(theme => ({
     margin: '5px 0px',
     height: 70,
     width: 280,
-    backgroundColor: 'rgba(225, 223, 222)',
+    backgroundColor: 'white',
     '&:hover': {
       backgroundColor: 'rgba(100, 149, 237)',
     }

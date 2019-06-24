@@ -1,5 +1,5 @@
 import React from 'react';
-import { Paper, Divider } from '@material-ui/core';
+import { Paper } from '@material-ui/core';
 import { withStyles } from '@material-ui/core/styles';
 import ChatHeaderBox from './ChatHeaderBox.js'
 import { Scrollbars } from 'react-custom-scrollbars';
@@ -28,6 +28,8 @@ class ChatBar extends React.Component {
           <SelfMessage />
           <SelfMessage />
           <SelfMessage />
+          <Message />
+          <Message />
         </Scrollbars>
         <ChatInputField></ChatInputField>
       </Paper>

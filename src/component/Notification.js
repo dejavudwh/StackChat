@@ -1,8 +1,7 @@
 import React from 'react';
-import { Paper, Typography, Divider, Snackbar, SvgIcon, IconButton } from '@material-ui/core';
+import { Paper, Typography, Divider } from '@material-ui/core';
 import { makeStyles } from '@material-ui/core/styles';
 import { Scrollbars } from 'react-custom-scrollbars';
-
 const useStyles = makeStyles(theme => ({
   root: {
     marginTop: '3px',
@@ -20,7 +19,7 @@ const useStyles = makeStyles(theme => ({
     height: '30px',
     color: 'white',
     margin: '5px',
-    backgroundColor: 'rgba(102, 205, 0)',
+    backgroundColor: 'rgba(67, 205, 128)',
   }
 }));
 
