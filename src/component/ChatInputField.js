@@ -23,7 +23,7 @@ export default function ChatInputField() {
       Full-width
       variant="outlined"
       id="mui-theme-provider-outlined-input"
-      
+
     />
   )
 }
