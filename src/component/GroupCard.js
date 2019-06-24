@@ -1,5 +1,5 @@
 import React from 'react';
-import { Avatar, Card, CardActionArea, Button, CardActions, IconButton, Typography, SvgIcon } from '@material-ui/core';
+import { Avatar, Card, CardActionArea, Button, CardActions, Typography } from '@material-ui/core';
 import { makeStyles } from '@material-ui/core/styles';
 import AvatarImg from '../static/images/avatar/1.jpg';
 
@@ -27,8 +27,8 @@ const useStyle = makeStyles(theme => ({
     top: '-10px',
     left: '15px',
     margin: '1px 5px',
-    width: '45px',
-    height: '45px',
+    width: '39px',
+    height: '39px',
   },
   CardActionArea: {
     margin: '20px 0px 0px 0px',
@@ -64,7 +64,13 @@ export default function GroupCard() {
           </Typography>
         </CardActionArea>
         <CardActions className={classes.CardActions}>
-          <Button className={classes.Button} variant="contained" size="small" color="primary">
+          <Button 
+            className={classes.Button} 
+            style={{
+              borderRadius: 10,
+              backgroundColor: "#21b6ae",
+            }}
+            variant="contained" size="small">
             message
           </Button>
         </CardActions>

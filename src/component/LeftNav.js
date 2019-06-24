@@ -9,7 +9,7 @@ const useStyles = makeStyles(theme => ({
     margin: '0px 0px',
     padding: '8px 15px',
     width: 15,
-    height: 524,
+    height: 564,
     backgroundColor: 'rgba(42, 42, 44)',
   },
   LogoText: {

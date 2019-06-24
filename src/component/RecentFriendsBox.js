@@ -7,7 +7,8 @@ const useStyle = makeStyles(theme => ({
   root: {
     margin: '15px 0px 0px 0px',
     padding: '0px',
-    width: 283,
+    width: 300,
+    height: 315,
     backgroundColor:'rgb(245, 245, 245)',
   }
 }));

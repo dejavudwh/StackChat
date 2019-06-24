@@ -12,7 +12,7 @@ const useStyle = makeStyles(theme => ({
     margin: '0px',
     padding: '8px 16px',
     width: 280,
-    height: 524,
+    height: 564,
     backgroundColor: 'rgba(245, 245, 245)'
   },
   chip: {

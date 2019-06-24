@@ -7,8 +7,8 @@ let win
 function createWindow () {
   // 创建浏览器窗口。
   win = new BrowserWindow({
-    width: 1100,
-    height: 540,
+    width: 1150,
+    height: 580,
     frame: false,
     resizable: false,
     webPreferences: {

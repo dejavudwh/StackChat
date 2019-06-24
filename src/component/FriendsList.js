@@ -8,6 +8,7 @@ import Avator2 from '../static/images/avatar/2.jpg';
 const useStyles = makeStyles(theme => ({
   root: {
     width: 275,
+    // height: 315,
     padding: '0px',
     margin: '0px',
   },
@@ -17,7 +18,7 @@ const useStyles = makeStyles(theme => ({
   Item: {
     margin: '5px 0px',
     height: 70,
-    width: 283,
+    width: 280,
     backgroundColor: 'rgba(225, 223, 222)',
     '&:hover': {
       backgroundColor: 'rgba(100, 149, 237)',
@@ -52,7 +53,7 @@ function FriendList() {
           </ListItemAvatar>
           <ListItemText
             className={classes.Text}
-            primary="Brunch this weekend?"
+            primary="Brunch"
             secondary=" — I'll be in your neighbo"
           />
           <IconButton size='medium' edge="end">
@@ -132,7 +133,7 @@ export default function FriendsList() {
 
   return (
     <div>
-      <Scrollbars style={{ width: 294, height: 270 }}>
+      <Scrollbars style={{ width: 294, height: 311 }}>
         <FriendList></FriendList>
       </Scrollbars>
     </div>
