@@ -1,7 +1,8 @@
 import React from 'react';
-import { Paper } from '@material-ui/core';
+import { Paper, Divider } from '@material-ui/core';
 import { withStyles } from '@material-ui/core/styles';
 import ShareBox from './ShareBox.js';
+import Notification from './Notification.js'
 
 const styles = {
   root: {
@@ -19,6 +20,8 @@ class Sidebar extends React.Component {
     return (
       <Paper className={this.props.classes.root}>
         <ShareBox></ShareBox>
+        <Divider></Divider>
+        <Notification></Notification>
       </Paper>
     );
   };
