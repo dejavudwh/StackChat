@@ -30,6 +30,7 @@ class App extends React.Component {
     }
 
     changeRightSidebar(event) {
+      console.log(event.target.id)
       const t = event.target.id === '' ? this.state.RightSidebar : event.target.id
       this.setState({
         RightSidebar: t,

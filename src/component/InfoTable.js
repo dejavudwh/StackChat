@@ -9,7 +9,7 @@ const useStyle = makeStyles(theme => ({
     padding: '8px 16px',
     width: 280,
     height: 564,
-    backgroundColor: 'red',
+    backgroundColor: 'orange',
   },
 }));
 
