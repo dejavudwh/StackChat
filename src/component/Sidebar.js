@@ -4,6 +4,7 @@ import { withStyles } from '@material-ui/core/styles';
 import ShareBox from './ShareBox.js';
 import Notification from './Notification.js'
 import Control from './Control.js'
+import FileShareBox from './FileShareBox.js'
 
 const styles = {
   root: {
@@ -17,10 +18,19 @@ const styles = {
 };
 
 class Sidebar extends React.Component {
+  constructor(props) {
+    super(props);
+  }
+
   render() {
+    var share = <ShareBox />;
+    if(this.props.species == 'fileShare') {
+      share = <FileShareBox />;
+    };
+
     return (
       <Paper className={this.props.classes.root}>
-        <ShareBox></ShareBox>
+        {share}
         <Divider></Divider>
         <Notification></Notification>
         <Control></Control>

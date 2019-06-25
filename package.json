@@ -31,11 +31,8 @@
   },
   "devDependencies": {
     "@material-ui/core": "^4.1.1",
-    "electron": "^5.0.4",
-    "react-custom-scrollbars": "^4.2.1",
+    "electron": "^5.0.5",
     "react-router": "^3.2.1",
-    "react-scrollbar": "^0.5.6",
-    "react-window": "^1.8.3",
-    "typeface-roboto": "^0.0.54"
+    "react-scrollbar": "^0.5.6"
   }
 }

@@ -7,7 +7,6 @@ import RecentFriendsBox from './RecentFriendsBox.js';
 
 const useStyle = makeStyles(theme => ({
   SocialBox: {
-    // display: 'inline-block',
     float: 'left',
     margin: '0px',
     padding: '8px 16px',
