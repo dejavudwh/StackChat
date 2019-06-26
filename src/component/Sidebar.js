@@ -24,7 +24,7 @@ class Sidebar extends React.Component {
 
   render() {
     var share = <ShareBox />;
-    if(this.props.species == 'fileShare') {
+    if(this.props.species === 'fileShare') {
       share = <FileShareBox />;
     };
 
