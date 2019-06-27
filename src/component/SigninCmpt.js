@@ -2,19 +2,19 @@ import React from 'react';
 import { browserHistory } from 'react-router';
 import { 
   Avatar,
-  Button,
   CssBaseline,
   TextField,
   FormControlLabel,
   Checkbox,
-  Link,
-  Grid,
   Container,
   Typography,
   SvgIcon,
+  Grid,
+  Link,
+  Button,
   } from '@material-ui/core';
 import { withStyles } from '@material-ui/core/styles';
-import { withRouter } from 'react-router';
+import SignupDialog from '../container/Signin.js'
 
 const styles = {
   paper: {
@@ -38,21 +38,27 @@ const styles = {
   },
 }
 
-class Login extends React.Component {
+class SigninCmpt extends React.Component {
   constructor(props) {
     super(props);
     this.handleClick = this.handleClick.bind(this);
+    this.changeSignup = this.changeSignup.bind(this);
   }
 
   handleClick(event) {
-    alert('asda');
+    event.preventDefault();
     const path = '/home';
     browserHistory.push(path);
   };
 
+  changeSignup() {
+    this.props.onSignup();
+  }
+
   render() {
     return (
       <Container component="main" maxWidth="xs">
+      <SignupDialog />
       <CssBaseline />
       <div className={this.props.classes.paper}>
         <Avatar className={this.props.classes.avatar}>
@@ -98,7 +104,7 @@ class Login extends React.Component {
             className={this.props.classes.submit}
             onClick={this.handleClick}
           >
-            Sign In
+            {"sign in"}
           </Button>
           <Grid container>
             <Grid item xs>
@@ -107,16 +113,16 @@ class Login extends React.Component {
               </Link>
             </Grid>
             <Grid item>
-              <Link href="#" variant="body2">
+              <Link href="#" variant="body2" onClick={this.changeSignup}>
                 {"Don't have an account? Sign Up"}
               </Link>
             </Grid>
           </Grid>
         </form>
       </div>
-    </Container>
-  );
+      </Container>
+    );
   }
 }
 
-export default withRouter(withStyles(styles)(Login));
+export default withStyles(styles)(SigninCmpt);

@@ -5,6 +5,7 @@ import ChatBar from './ChatBar.js';
 import Sidebar from './Sidebar.js';
 import InfoTable from './InfoTable.js';
 import AddressBook from './AddressBook.js';
+import { browserHistory } from 'react-router';
 
 class App extends React.Component {
     constructor(props) {
