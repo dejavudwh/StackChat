@@ -1,20 +1,4 @@
-const initialState = {
-  signup: false,
-}
+import registerChange from './register.js'
+import { combineReducers } from 'redux'
 
-const changeSign = (state, action) => {
-  if (typeof state === 'undefined') {
-    return initialState
-  } else if(action.type === 'onSignup') {
-    return Object.assign({}, state, {
-      signup: action.sign,
-    })
-  } else if(action.type === 'closeSignup') {
-    console.log(action.sign);
-    return Object.assign({}, state, {
-      signup: action.sign,
-    })
-  }
-}
-
-export default changeSign;
+export default registerChange;

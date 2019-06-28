@@ -27,6 +27,7 @@ export default function SignupDialog(props) {
       </Typography>
       <form className={classes.form} noValidate>
         <TextField
+          value={props.signupName}
           variant="outlined"
           margin="normal"
           required
@@ -35,8 +36,10 @@ export default function SignupDialog(props) {
           name="username"
           autoComplete="email"
           autoFocus
+          onChange={props.SignUpNameChange}
         />
         <TextField
+          value={props.signupEmail}
           variant="outlined"
           margin="normal"
           required
@@ -44,8 +47,10 @@ export default function SignupDialog(props) {
           label="Email Address"
           name="email"
           autoComplete="email"
+          onChange={props.SignUpEmailChange}
         />
         <TextField
+          value={props.signupPwd}
           variant="outlined"
           margin="normal"
           required
@@ -54,22 +59,25 @@ export default function SignupDialog(props) {
           type="password"
           id="password"
           autoComplete="current-password"
+          onChange={props.SignUpPwdChange}
         />
         <Button
-          type="submit"
+          onClick={props.CloseSignup}
+          // type="submit"
           variant="contained"
           color="secondary"
           className={classes.submit}
         >
-          {"sign up"}
+          {"sign in"}
         </Button>
         <Button
-          type="submit"
+          onClick={props.SignUpUser}
+          // type="submit"
           variant="contained"
           color="primary"
           className={classes.submit}
         >
-          {"sign in"}
+          {"sign up"}
         </Button>
       </form>
     </Dialog>
