@@ -55,7 +55,25 @@ const registerChange = (state, action) => {
         signupPwd: state.signUpForm.signupPwd,
       },
     })
-  } else if(action.type === 'SIGNUP_USER') {
+  } else if(action.type === 'SIGNUP_USER_SUCCESS') {
+    return Object.assign({}, state, {
+      signUpForm: {
+        signup: action.sign,
+        signupUsername: state.signUpForm.signupUsername,
+        signupEmail: state.signUpForm.signupEmail,
+        signupPwd: state.signUpForm.signupPwd,
+      },
+    })
+  } else if(action.type === 'SIGNUP_NAME_FAIL') {
+    return Object.assign({}, state, {
+      signUpForm: {
+        signup: action.sign,
+        signupUsername: state.signUpForm.signupUsername,
+        signupEmail: state.signUpForm.signupEmail,
+        signupPwd: state.signUpForm.signupPwd,
+      },
+    })
+  } else if(action.type === 'SIGNUP_SERVER_FAIL') {
     return Object.assign({}, state, {
       signUpForm: {
         signup: action.sign,

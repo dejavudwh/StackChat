@@ -1,3 +1,5 @@
+import isCorrectName from '../static/js/CheckUsername';
+
 export const SignUpNameChange = (value) => ({
   type: 'SIGNUP_NAME_CHANGE',
   value: value,
@@ -11,6 +13,21 @@ export const SignUpEmailChange = (value) => ({
 export const SignUpPwdChange = (value) => ({
   type: 'SIGNUP_PWD_CHANGE',
   value: value,
+})
+
+export const  SignUpSuccess = () => ({
+  type: 'SIGNUP_USER_SUCCESS',
+  sign: false,
+})
+
+export const SignUpNameFail = () => ({
+  type: 'SIGNUP_NAME_FAIL',
+  sign: true,
+})
+
+export const SignUpServerFail = () => ({
+  type: 'SIGNUP_SERVER_FAIL',
+  sign: true,
 })
 
 const fetchSignUp = (username, email, password) => {
@@ -33,12 +50,21 @@ const fetchSignUp = (username, email, password) => {
 
 export const SignUpUser = () => {
   return (dispatch, getState) => {
-    fetchSignUp(getState().signUpForm.signupUsername, getState().signUpForm.signupEmail, getState().signUpForm.signupPwd)
-    .then(res => {
-      dispatch({
-        type: 'SIGNUP_USER',
-        sign: false,
+    const username = getState().signUpForm.signupUsername;
+    const email = getState().signUpForm.signupEmail;
+    const password =getState().signUpForm.signupPwd;
+
+    if(!isCorrectName(username)) {
+      dispatch(SignUpNameFail());
+    } else {
+      fetchSignUp(username, email, password)
+      .then(() => {
+        dispatch(SignUpSuccess())
       })
-    })
+      .catch(() => {
+        alert('Server error');
+        dispatch(SignUpServerFail());
+      })
+    }
   }
 }

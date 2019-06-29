@@ -13,7 +13,7 @@ import thunk from 'redux-thunk';
 const store = createStore(
   Reducer,
   applyMiddleware(thunk)
-  );
+);
 const unsubscribe = store.subscribe(() => console.log(store.getState()));
 
 ReactDOM.render((

@@ -34,7 +34,6 @@ export default function SignupDialog(props) {
           id="username"
           label="User Name"
           name="username"
-          autoComplete="email"
           autoFocus
           onChange={props.SignUpNameChange}
         />
@@ -46,7 +45,6 @@ export default function SignupDialog(props) {
           id="email"
           label="Email Address"
           name="email"
-          autoComplete="email"
           onChange={props.SignUpEmailChange}
         />
         <TextField
@@ -58,7 +56,6 @@ export default function SignupDialog(props) {
           label="Password"
           type="password"
           id="password"
-          autoComplete="current-password"
           onChange={props.SignUpPwdChange}
         />
         <Button

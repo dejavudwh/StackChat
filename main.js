@@ -1,4 +1,5 @@
-const { app, BrowserWindow } = require('electron')
+const { app, BrowserWindow } = require('electron');
+const path = require('path');
 
 // 保持对window对象的全局引用，如果不这么做的话，当JavaScript对象被
 // 垃圾回收的时候，window对象将会自动的关闭
@@ -14,6 +15,7 @@ function createWindow () {
     webPreferences: {
       nodeIntegration: true,
       webSecurity: false,
+      preload: path.join(__dirname, './renderer.js')
     }
   })
 
