@@ -10,8 +10,22 @@ import { createStore, applyMiddleware  } from 'redux';
 import { Provider } from 'react-redux';
 import thunk from 'redux-thunk';
 
+const initialState = {
+  signUpForm: {
+    signup: false,
+    signupUsername: '',
+    signupEmail: '',
+    signupPwd: '',
+  },
+  signinInfo: {
+    email: '',
+    password: '',
+  }
+}
+
 const store = createStore(
   Reducer,
+  // initialState,
   applyMiddleware(thunk)
 );
 const unsubscribe = store.subscribe(() => console.log(store.getState()));

@@ -1,4 +1,5 @@
-import isCorrectName from '../static/js/CheckUsername';
+import { isCorrectName, isCorrectEmail } from '../static/js/CheckInput';
+const { dialog } = require('electron').remote;
 
 export const SignUpNameChange = (value) => ({
   type: 'SIGNUP_NAME_CHANGE',
@@ -54,7 +55,7 @@ export const SignUpUser = () => {
     const email = getState().signUpForm.signupEmail;
     const password =getState().signUpForm.signupPwd;
 
-    if(!isCorrectName(username)) {
+    if(!isCorrectName(username) || !isCorrectEmail(email)) {
       dispatch(SignUpNameFail());
     } else {
       fetchSignUp(username, email, password)
@@ -62,7 +63,10 @@ export const SignUpUser = () => {
         dispatch(SignUpSuccess())
       })
       .catch(() => {
-        alert('Server error');
+        dialog.showMessageBox({
+          title: '提示',
+          message: 'Server error！'
+        })
         dispatch(SignUpServerFail());
       })
     }

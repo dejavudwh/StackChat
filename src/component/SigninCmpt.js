@@ -76,10 +76,11 @@ class SigninCmpt extends React.Component {
             required
             fullWidth
             id="email"
-            label="User Name / Email Address"
+            label="Email Address"
             name="email"
             autoComplete="email"
             autoFocus
+            onChange={this.props.onChangeEmailInput}
           />
           <TextField
             variant="outlined"
@@ -91,6 +92,7 @@ class SigninCmpt extends React.Component {
             type="password"
             id="password"
             autoComplete="current-password"
+            onChange={this.props.onChangePwdInput}
           />
           <FormControlLabel
             control={<Checkbox value="remember" color="primary" />}

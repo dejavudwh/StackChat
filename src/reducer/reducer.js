@@ -1,4 +1,8 @@
-import registerChange from './register.js'
+import registerChange from './register'
+import loginInfoChange from './login'
 import { combineReducers } from 'redux'
 
-export default registerChange;
+export default combineReducers({
+  register: registerChange,
+  login: loginInfoChange
+});
