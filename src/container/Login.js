@@ -5,7 +5,7 @@ import { loginEmailChange, loginPwdChange } from '../actions/login.js'
 import { withRouter } from 'react-router';
 
 const mapStateToProps = (state) => ({
-  signup: state.register.signUpForm.signup,
+  signup: state.register.signup,
 })
 
 const mapDispatchToProps = (dispatch) => ({

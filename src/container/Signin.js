@@ -4,10 +4,10 @@ import { onSignup, closeSignup } from '../actions/index.js'
 import { SignUpNameChange, SignUpEmailChange, SignUpPwdChange, SignUpUser} from '../actions/register.js'
 
 const mapStateToProps = (state) => ({
-  signup: state.signUpForm.signup,
-  signupName: state.signUpForm.signupUsername,
-  signupEmail: state.signUpForm.signupEmail,
-  signupPwd: state.signUpForm.signupPwd,
+  signup: state.register.signup,
+  signupName: state.register.signupUsername,
+  signupEmail: state.register.signupEmail,
+  signupPwd: state.register.signupPwd,
 });
 
 const mapDispatchToProps = (dispatch) => ({

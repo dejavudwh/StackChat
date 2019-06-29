@@ -1,10 +1,8 @@
 const initialState = {
-  signUpForm: {
     signup: false,
     signupUsername: '',
     signupEmail: '',
     signupPwd: '',
-  }
 }
 
 const registerChange = (state, action) => {
@@ -12,76 +10,62 @@ const registerChange = (state, action) => {
     return initialState
   } else if(action.type === 'SIGNUP_NAME_CHANGE') {
     return Object.assign({}, state, {
-      signUpForm: {
         signup: true,
         signupUsername: action.value,
-        signupEmail: state.signUpForm.signupEmail,
-        signupPwd: state.signUpForm.signupPwd,
-      },
+        signupEmail: state.signupEmail,
+        signupPwd: state.signupPwd,
     })
   } else if(action.type === 'SIGNUP_EMAIL_CHANGE') {
     return Object.assign({}, state, {
-      signUpForm: {
         signup: true,
-        signupUsername: state.signUpForm.signupUsername,
+        signupUsername: state.signupUsername,
         signupEmail: action.value,
-        signupPwd: state.signUpForm.signupPwd,
-      },
+        signupPwd: state.signupPwd,
     })
   } else if(action.type === 'SIGNUP_PWD_CHANGE') {
     return Object.assign({}, state, {
-      signUpForm: {
         signup: true,
-        signupUsername: state.signUpForm.signupUsername,
-        signupEmail: state.signUpForm.signupEmail,
+        signupUsername: state.signupUsername,
+        signupEmail: state.signupEmail,
         signupPwd: action.value,
-      },
     })
   } else if(action.type === 'onSignup') {
     return Object.assign({}, state, {
-      signUpForm: {
         signup: true,
-        signupUsername: state.signUpForm.signupUsername,
-        signupEmail: state.signUpForm.signupEmail,
-        signupPwd: state.signUpForm.signupPwd,
-      },
+        signupUsername: state.signupUsername,
+        signupEmail: state.signupEmail,
+        signupPwd: state.signupPwd,
     })
   } else if(action.type === 'closeSignup') {
     return Object.assign({}, state, {
-      signUpForm: {
         signup: action.sign,
-        signupUsername: state.signUpForm.signupUsername,
-        signupEmail: state.signUpForm.signupEmail,
-        signupPwd: state.signUpForm.signupPwd,
-      },
+        signupUsername: state.signupUsername,
+        signupEmail: state.signupEmail,
+        signupPwd: state.signupPwd,
     })
   } else if(action.type === 'SIGNUP_USER_SUCCESS') {
     return Object.assign({}, state, {
-      signUpForm: {
         signup: action.sign,
-        signupUsername: state.signUpForm.signupUsername,
-        signupEmail: state.signUpForm.signupEmail,
-        signupPwd: state.signUpForm.signupPwd,
-      },
+        signupUsername: state.signupUsername,
+        signupEmail: state.signupEmail,
+        signupPwd: state.signupPwd,
     })
   } else if(action.type === 'SIGNUP_NAME_FAIL') {
     return Object.assign({}, state, {
-      signUpForm: {
         signup: action.sign,
-        signupUsername: state.signUpForm.signupUsername,
-        signupEmail: state.signUpForm.signupEmail,
-        signupPwd: state.signUpForm.signupPwd,
-      },
+        signupUsername: state.signupUsername,
+        signupEmail: state.signupEmail,
+        signupPwd: state.signupPwd,
     })
   } else if(action.type === 'SIGNUP_SERVER_FAIL') {
     return Object.assign({}, state, {
-      signUpForm: {
         signup: action.sign,
-        signupUsername: state.signUpForm.signupUsername,
-        signupEmail: state.signUpForm.signupEmail,
-        signupPwd: state.signUpForm.signupPwd,
-      },
+        signupUsername: state.signupUsername,
+        signupEmail: state.signupEmail,
+        signupPwd: state.signupPwd,
     })
+  } else {
+    return state;
   }
 }
 

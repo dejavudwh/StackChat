@@ -11,13 +11,13 @@ import { Provider } from 'react-redux';
 import thunk from 'redux-thunk';
 
 const initialState = {
-  signUpForm: {
+  register: {
     signup: false,
     signupUsername: '',
     signupEmail: '',
     signupPwd: '',
   },
-  signinInfo: {
+  login: {
     email: '',
     password: '',
   }

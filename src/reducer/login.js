@@ -1,8 +1,6 @@
 const initialState = {
-  signinInfo: {
     email: '',
     password: '',
-  }
 }
 
 const loginInfoChange = (state, action) => {
@@ -11,18 +9,16 @@ const loginInfoChange = (state, action) => {
   } else
    if(action.type === 'LOGIN_EMAIL_CHANGE') {
     return Object.assign({}, state, {
-      signinInfo: {
         email: action.value,
-        password: state.signinInfo.password,
-      },
+        password: state.password,
     })
   } else if(action.type === 'LOGIN_PWD_CHANGE') {
     return Object.assign({}, state, {
-      signinInfo: {
-        email: state.signinInfo.email,
+        email: state.email,
         password: action.value,
-      },
     })
+  } else {
+    return state;
   }
 } 
 

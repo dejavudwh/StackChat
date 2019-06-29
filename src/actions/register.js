@@ -51,9 +51,9 @@ const fetchSignUp = (username, email, password) => {
 
 export const SignUpUser = () => {
   return (dispatch, getState) => {
-    const username = getState().signUpForm.signupUsername;
-    const email = getState().signUpForm.signupEmail;
-    const password =getState().signUpForm.signupPwd;
+    const username = getState().register.signupUsername;
+    const email = getState().register.signupEmail;
+    const password =getState().register.signupPwd;
 
     if(!isCorrectName(username) || !isCorrectEmail(email)) {
       dispatch(SignUpNameFail());
