@@ -1,17 +1,18 @@
-const express = require('express');
-const fs = require('fs');
+const express = require('express')
+const fs = require('fs')
 const cors = require('cors')
-const app = express();
 const bodyParser = require('body-parser')
 const SignUp = require('./service/signup')
 
-app.use(bodyParser.json());	
-app.use(cors());
+const app = express()
+
+app.use(bodyParser.json())
+app.use(cors())
 
 app.get('/', (res, req) => {
   fs.readFile('index.html', 'utf8', (err, data) => {
-    if(err) throw err;
-    req.send(data);
+    if (err) throw err
+    req.send(data)
   })
 })
 
@@ -24,9 +25,9 @@ app.post('/api/signup', (req, res) => {
     username: req.body.username,
     email: req.body.email,
     password: req.body.password,
-  };
-  SignUp(user);
-  res.send(JSON.stringify(user));
+  }
+  SignUp(user)
+  res.send(JSON.stringify(user))
 })
 
 app.listen(8008, () => console.log('App listening on port 8008!'))

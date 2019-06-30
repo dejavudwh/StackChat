@@ -1,11 +1,13 @@
-import React from 'react';
-import { Scrollbars } from 'react-custom-scrollbars';
-import { makeStyles, withStyles } from '@material-ui/core/styles';
-import { Badge, List, ListItem, Divider, ListItemText, ListItemAvatar, Avatar, SvgIcon, IconButton } from '@material-ui/core';
-import Avator1 from '../static/images/avatar/3.jpg';
-import Avator2 from '../static/images/avatar/2.jpg';
+import React from 'react'
+import { Scrollbars } from 'react-custom-scrollbars'
+import { makeStyles, withStyles } from '@material-ui/core/styles'
+import {
+  Badge, List, ListItem, Divider, ListItemText, ListItemAvatar, Avatar, SvgIcon, IconButton,
+} from '@material-ui/core'
+import Avator1 from '../static/images/avatar/3.jpg'
+import Avator2 from '../static/images/avatar/2.jpg'
 
-const useStyles = makeStyles(theme => ({
+const useStyles = makeStyles(() => ({
   root: {
     width: 275,
     // height: 315,
@@ -22,9 +24,9 @@ const useStyles = makeStyles(theme => ({
     backgroundColor: 'white',
     '&:hover': {
       backgroundColor: 'rgba(100, 149, 237)',
-    }
+    },
   },
-}));
+}))
 
 const MesBadge = withStyles(theme => ({
   badge: {
@@ -35,12 +37,12 @@ const MesBadge = withStyles(theme => ({
       theme.palette.type === 'light' ? theme.palette.grey[200] : theme.palette.grey[900]
     }`,
   },
-}))(Badge);
+}))(Badge)
 
 function FriendList() {
-  const classes = useStyles();
+  const classes = useStyles()
 
-  const handleClick = function(e) {
+  const handleClick = () => {
     alert('ada')
   }
 
@@ -56,9 +58,9 @@ function FriendList() {
             primary="Brunch"
             secondary=" — I'll be in your neighbo"
           />
-          <IconButton size='medium' edge="end">
+          <IconButton size="medium" edge="end">
             <SvgIcon htmlColor="green">
-              <path d="M20 2H4c-1.1 0-1.99.9-1.99 2L2 22l4-4h14c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zM9 11H7V9h2v2zm4 0h-2V9h2v2zm4 0h-2V9h2v2z"/>
+              <path d="M20 2H4c-1.1 0-1.99.9-1.99 2L2 22l4-4h14c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zM9 11H7V9h2v2zm4 0h-2V9h2v2zm4 0h-2V9h2v2z" />
             </SvgIcon>
           </IconButton>
         </ListItem>
@@ -74,9 +76,9 @@ function FriendList() {
             primary="Summer BBQ"
             secondary=" — Wish I could com"
           />
-          <IconButton size='medium' edge="end">
+          <IconButton size="medium" edge="end">
             <SvgIcon htmlColor="green">
-              <path d="M20 2H4c-1.1 0-1.99.9-1.99 2L2 22l4-4h14c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zM9 11H7V9h2v2zm4 0h-2V9h2v2zm4 0h-2V9h2v2z"/>
+              <path d="M20 2H4c-1.1 0-1.99.9-1.99 2L2 22l4-4h14c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zM9 11H7V9h2v2zm4 0h-2V9h2v2zm4 0h-2V9h2v2z" />
             </SvgIcon>
           </IconButton>
         </ListItem>
@@ -89,7 +91,7 @@ function FriendList() {
         <ListItemText
           className={classes.Text}
           primary="Oui Oui"
-          secondary=' — Do you have Paris recomm'
+          secondary=" — Do you have Paris recomm"
         />
       </ListItem>
       <Divider variant="inset" component="li" />
@@ -100,7 +102,7 @@ function FriendList() {
         <ListItemText
           className={classes.Text}
           primary="Oui Oui"
-          secondary=' — Do you have Paris recomm'
+          secondary=" — Do you have Paris recomm"
         />
       </ListItem>
       <Divider variant="inset" component="li" />
@@ -111,7 +113,7 @@ function FriendList() {
         <ListItemText
           className={classes.Text}
           primary="Oui Oui"
-          secondary=' — Do you have Paris recomm'
+          secondary=" — Do you have Paris recomm"
         />
       </ListItem>
       <Divider variant="inset" component="li" />
@@ -122,7 +124,7 @@ function FriendList() {
         <ListItemText
           className={classes.Text}
           primary="Oui Oui"
-          secondary=' — Do you have Paris recomm'
+          secondary=" — Do you have Paris recomm"
         />
       </ListItem>
     </List>
@@ -130,12 +132,11 @@ function FriendList() {
 }
 
 export default function FriendsList() {
-
   return (
     <div>
       <Scrollbars style={{ width: 294, height: 311 }}>
-        <FriendList></FriendList>
+        <FriendList />
       </Scrollbars>
     </div>
-  );
+  )
 }

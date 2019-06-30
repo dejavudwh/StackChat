@@ -1,11 +1,11 @@
-import React from 'react';
-import { Paper } from '@material-ui/core';
-import { withStyles } from '@material-ui/core/styles';
-import ChatHeaderBox from './ChatHeaderBox.js'
-import { Scrollbars } from 'react-custom-scrollbars';
-import Message from './Message.js';
-import SelfMessage from './SelfMessage.js';
-import ChatInputField from './ChatInputField.js';
+import React from 'react'
+import { Paper } from '@material-ui/core'
+import { withStyles } from '@material-ui/core/styles'
+import { Scrollbars } from 'react-custom-scrollbars'
+import ChatHeaderBox from './ChatHeaderBox'
+import Message from './Message'
+import SelfMessage from './SelfMessage'
+import ChatInputField from './ChatInputField'
 
 const styles = {
   root: {
@@ -15,8 +15,8 @@ const styles = {
     height: 564,
     margin: '0px 0px',
     padding: '8px 15px',
-  }
-};
+  },
+}
 
 class ChatBar extends React.Component {
   render() {
@@ -31,10 +31,10 @@ class ChatBar extends React.Component {
           <Message />
           <Message />
         </Scrollbars>
-        <ChatInputField></ChatInputField>
+        <ChatInputField />
       </Paper>
-    );
-  };
+    )
+  }
 }
 
-export default withStyles(styles)(ChatBar);
+export default withStyles(styles)(ChatBar)

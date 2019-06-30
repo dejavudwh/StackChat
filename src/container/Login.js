@@ -1,14 +1,14 @@
 import { connect } from 'react-redux'
-import SigninCmpt from '../component/SigninCmpt.js';
-import { onSignup, closeSignup } from '../actions/index.js'
-import { loginEmailChange, loginPwdChange } from '../actions/login.js'
-import { withRouter } from 'react-router';
+import { withRouter } from 'react-router'
+import SigninCmpt from '../component/SigninCmpt'
+import { onSignup, closeSignup } from '../actions/index'
+import { loginEmailChange, loginPwdChange } from '../actions/login'
 
-const mapStateToProps = (state) => ({
+const mapStateToProps = state => ({
   signup: state.register.signup,
 })
 
-const mapDispatchToProps = (dispatch) => ({
+const mapDispatchToProps = dispatch => ({
   onSignup: () => {
     dispatch(onSignup())
   },
@@ -20,12 +20,12 @@ const mapDispatchToProps = (dispatch) => ({
   },
   onChangePwdInput: (event) => {
     dispatch(loginPwdChange(event.target.value))
-  }
+  },
 })
 
 const Login = connect(
   mapStateToProps,
-  mapDispatchToProps
-)(SigninCmpt);
+  mapDispatchToProps,
+)(SigninCmpt)
 
-export default withRouter(Login);
+export default withRouter(Login)

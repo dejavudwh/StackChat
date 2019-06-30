@@ -1,22 +1,22 @@
-import React from 'react';
-import GroupCard from './GroupCard.js';
-import { makeStyles } from '@material-ui/core/styles';
+import React from 'react'
+import { makeStyles } from '@material-ui/core/styles'
+import GroupCard from './GroupCard'
 
-const useStyle = makeStyles(theme => ({
+const useStyle = makeStyles(() => ({
   RecentGroupBox: {
     margin: '0px',
     padding: '0px',
-  }
-}));
+  },
+}))
 
 export default function RecentGroupBox() {
-  const classes = useStyle();
+  const classes = useStyle()
 
   return (
     <div className={classes.RecentGroupBox}>
-      <GroupCard></GroupCard>
-      <GroupCard></GroupCard>
-      <GroupCard></GroupCard>
+      <GroupCard />
+      <GroupCard />
+      <GroupCard />
     </div>
-  );
-};
+  )
+}

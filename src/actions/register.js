@@ -1,74 +1,73 @@
-import { isCorrectName, isCorrectEmail } from '../static/js/CheckInput';
-const { dialog } = require('electron').remote;
+import { isCorrectName, isCorrectEmail } from '../static/js/CheckInput'
 
-export const SignUpNameChange = (value) => ({
+const { dialog } = require('electron').remote
+
+export const signUpNameChange = value => ({
   type: 'SIGNUP_NAME_CHANGE',
-  value: value,
+  value,
 })
 
-export const SignUpEmailChange = (value) => ({
+export const signUpEmailChange = value => ({
   type: 'SIGNUP_EMAIL_CHANGE',
-  value: value,
+  value,
 })
 
-export const SignUpPwdChange = (value) => ({
+export const signUpPwdChange = value => ({
   type: 'SIGNUP_PWD_CHANGE',
-  value: value,
+  value,
 })
 
-export const  SignUpSuccess = () => ({
+export const signUpSuccess = () => ({
   type: 'SIGNUP_USER_SUCCESS',
   sign: false,
 })
 
-export const SignUpNameFail = () => ({
+export const signUpNameFail = () => ({
   type: 'SIGNUP_NAME_FAIL',
   sign: true,
 })
 
-export const SignUpServerFail = () => ({
+export const signUpServerFail = () => ({
   type: 'SIGNUP_SERVER_FAIL',
   sign: true,
 })
 
 const fetchSignUp = (username, email, password) => {
-  const url = 'http://localhost:8008/api/signup';
+  const url = 'http://localhost:8008/api/signup'
   const data = {
-    username: username,
-    email: email,
-    password: password,
-  };
+    username,
+    email,
+    password,
+  }
   console.log('fetch', data)
   return fetch(url, {
     method: 'POST', // or 'PUT'
     body: JSON.stringify(data), // data can be `string` or {object}!
     headers: new Headers({
-      'Content-Type': 'application/json'
-    })
+      'Content-Type': 'application/json',
+    }),
   }).then(res => res.json())
-  .then(response => console.log('Success:', response));
+    .then(response => console.log('Success:', response))
 }
 
-export const SignUpUser = () => {
-  return (dispatch, getState) => {
-    const username = getState().register.signupUsername;
-    const email = getState().register.signupEmail;
-    const password =getState().register.signupPwd;
+export const signUpUser = () => (dispatch, getState) => {
+  const username = getState().register.signupUsername
+  const email = getState().register.signupEmail
+  const password = getState().register.signupPwd
 
-    if(!isCorrectName(username) || !isCorrectEmail(email)) {
-      dispatch(SignUpNameFail());
-    } else {
-      fetchSignUp(username, email, password)
+  if (!isCorrectName(username) || !isCorrectEmail(email)) {
+    dispatch(signUpNameFail())
+  } else {
+    fetchSignUp(username, email, password)
       .then(() => {
-        dispatch(SignUpSuccess())
+        dispatch(signUpSuccess())
       })
       .catch(() => {
         dialog.showMessageBox({
           title: '提示',
-          message: 'Server error！'
+          message: 'Server error！',
         })
-        dispatch(SignUpServerFail());
+        dispatch(signUpServerFail())
       })
-    }
   }
 }

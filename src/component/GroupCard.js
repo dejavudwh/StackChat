@@ -1,9 +1,11 @@
-import React from 'react';
-import { Avatar, Card, CardActionArea, Button, CardActions, Typography } from '@material-ui/core';
-import { makeStyles } from '@material-ui/core/styles';
-import AvatarImg from '../static/images/avatar/1.jpg';
+import React from 'react'
+import {
+  Avatar, Card, CardActionArea, Button, CardActions, Typography,
+} from '@material-ui/core'
+import { makeStyles } from '@material-ui/core/styles'
+import AvatarImg from '../static/images/avatar/1.jpg'
 
-const useStyle = makeStyles(theme => ({
+const useStyle = makeStyles(() => ({
   GroupCard: {
     display: 'inline-block',
     position: 'relative',
@@ -39,42 +41,44 @@ const useStyle = makeStyles(theme => ({
   },
   Button: {
     width: 82,
-  }
-}));
+  },
+}))
 
 export default function GroupCard() {
-  const classes = useStyle();
+  const classes = useStyle()
   const [text, setText] = React.useState('Hazrd')
 
-  const handleClick = function(e) {
-    setText('asdad');
+  const handleClick = () => {
+    setText('asdad')
   }
 
   return (
     <div className={classes.GroupCard}>
-      <Avatar className={classes.Avatar} src={AvatarImg}></Avatar>
+      <Avatar className={classes.Avatar} src={AvatarImg} />
       <Card className={classes.card} onClick={handleClick}>
         <CardActionArea className={classes.CardActionArea}>
-          <Typography variant="button" align='left' noWrap='true' className={classes.AvatarText}>
+          <Typography variant="button" align="left" noWrap="true" className={classes.AvatarText}>
             {text}
           </Typography>
           <br />
-          <Typography variant="overline" align='center' noWrap='false'>
-            0/3 people
+          <Typography variant="overline" align="center" noWrap="false">
+            {'0/3 people'}
           </Typography>
         </CardActionArea>
         <CardActions className={classes.CardActions}>
-          <Button 
-            className={classes.Button} 
+          <Button
+            className={classes.Button}
             style={{
               borderRadius: 10,
-              backgroundColor: "#21b6ae",
+              backgroundColor: '#21b6ae',
             }}
-            variant="contained" size="small">
-            message
+            variant="contained"
+            size="small"
+          >
+            {'message'}
           </Button>
         </CardActions>
       </Card>
     </div>
   )
-};
+}

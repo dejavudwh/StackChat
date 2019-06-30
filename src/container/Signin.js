@@ -1,16 +1,18 @@
 import { connect } from 'react-redux'
-import SignupDialog from '../component/SignupDialog.js';
-import { onSignup, closeSignup } from '../actions/index.js'
-import { SignUpNameChange, SignUpEmailChange, SignUpPwdChange, SignUpUser} from '../actions/register.js'
+import SignupDialog from '../component/SignupDialog'
+import { onSignup, closeSignup } from '../actions/index'
+import {
+  signUpNameChange, signUpEmailChange, signUpPwdChange, signUpUser,
+} from '../actions/register'
 
-const mapStateToProps = (state) => ({
+const mapStateToProps = state => ({
   signup: state.register.signup,
   signupName: state.register.signupUsername,
   signupEmail: state.register.signupEmail,
   signupPwd: state.register.signupPwd,
-});
+})
 
-const mapDispatchToProps = (dispatch) => ({
+const mapDispatchToProps = dispatch => ({
   OnSignup: () => {
     dispatch(onSignup())
   },
@@ -18,21 +20,20 @@ const mapDispatchToProps = (dispatch) => ({
     dispatch(closeSignup())
   },
   SignUpNameChange: (event) => {
-    dispatch(SignUpNameChange(event.target.value))
+    dispatch(signUpNameChange(event.target.value))
   },
   SignUpEmailChange: (event) => {
-    dispatch(SignUpEmailChange(event.target.value))
+    dispatch(signUpEmailChange(event.target.value))
   },
   SignUpPwdChange: (event) => {
-    dispatch(SignUpPwdChange(event.target.value))
+    dispatch(signUpPwdChange(event.target.value))
   },
   SignUpUser: () => {
-    dispatch(SignUpUser())
+    dispatch(signUpUser())
   },
-});
+})
 
 export default connect(
   mapStateToProps,
-  mapDispatchToProps
-)(SignupDialog);
-
+  mapDispatchToProps,
+)(SignupDialog)

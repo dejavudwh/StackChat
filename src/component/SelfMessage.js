@@ -1,9 +1,9 @@
-import React from 'react';
-import { Avatar, Paper, Typography } from '@material-ui/core';
-import { makeStyles } from '@material-ui/core/styles';
+import React from 'react'
+import { Avatar, Paper, Typography } from '@material-ui/core'
+import { makeStyles } from '@material-ui/core/styles'
 import AvatarImg from '../static/images/avatar/5.jpg'
 
-const useStyles = makeStyles(theme => ({
+const useStyles = makeStyles(() => ({
   root: {
     marginBottom: '25px',
     marginLeft: '224px',
@@ -19,26 +19,26 @@ const useStyles = makeStyles(theme => ({
     marginRight: '8px',
     padding: '5px',
     backgroundColor: 'white',
-    '& p':{
+    '& p': {
       fontSize: '15px',
       color: 'gray',
       margin: '0px',
       padding: '1px',
-    }
-  }
-}));
+    },
+  },
+}))
 
 export default function Message() {
-  const classes = useStyles();
+  const classes = useStyles()
 
   return (
     <div className={classes.root}>
       <Paper className={classes.Content}>
-        <Typography >
-          <p>Life's but a walking shadow, a poor player.</p>
+        <Typography>
+          <p>Life s but a walking shadow, a poor player.</p>
         </Typography>
       </Paper>
-      <Avatar className={classes.Avatar} src={AvatarImg}></Avatar>
+      <Avatar className={classes.Avatar} src={AvatarImg} />
     </div>
   )
 }

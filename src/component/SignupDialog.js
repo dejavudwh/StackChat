@@ -1,8 +1,10 @@
-import React from 'react';
-import { makeStyles } from '@material-ui/core/styles';
-import { Dialog, TextField, Button, Typography } from '@material-ui/core';
+import React from 'react'
+import { makeStyles } from '@material-ui/core/styles'
+import {
+  Dialog, TextField, Button, Typography,
+} from '@material-ui/core'
 
-const useStyles = makeStyles(theme => ({
+const useStyles = makeStyles(() => ({
   root: {
     marginLeft: '400px',
     width: '350px',
@@ -18,12 +20,12 @@ const useStyles = makeStyles(theme => ({
 }))
 
 export default function SignupDialog(props) {
-  const classes = useStyles();
+  const classes = useStyles()
 
   return (
-    <Dialog className={classes.root} open={props.signup} >
+    <Dialog className={classes.root} open={props.signup}>
       <Typography component="h1" variant="button" color="primary">
-          Sign up
+        {'Sign up'}
       </Typography>
       <form className={classes.form} noValidate>
         <TextField
@@ -65,7 +67,7 @@ export default function SignupDialog(props) {
           color="secondary"
           className={classes.submit}
         >
-          {"sign in"}
+          {'sign in'}
         </Button>
         <Button
           onClick={props.SignUpUser}
@@ -74,7 +76,7 @@ export default function SignupDialog(props) {
           color="primary"
           className={classes.submit}
         >
-          {"sign up"}
+          {'sign up'}
         </Button>
       </form>
     </Dialog>

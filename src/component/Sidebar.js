@@ -1,10 +1,10 @@
-import React from 'react';
-import { Paper, Divider } from '@material-ui/core';
-import { withStyles } from '@material-ui/core/styles';
-import ShareBox from './ShareBox.js';
-import Notification from './Notification.js'
-import Control from './Control.js'
-import FileShareBox from './FileShareBox.js'
+import React from 'react'
+import { Paper, Divider } from '@material-ui/core'
+import { withStyles } from '@material-ui/core/styles'
+import ShareBox from './ShareBox'
+import Notification from './Notification'
+import Control from './Control'
+import FileShareBox from './FileShareBox'
 
 const styles = {
   root: {
@@ -15,28 +15,24 @@ const styles = {
     margin: '0px 0px',
     padding: '8px 0px',
   },
-};
+}
 
 class Sidebar extends React.Component {
-  constructor(props) {
-    super(props);
-  }
-
   render() {
-    var share = <ShareBox />;
-    if(this.props.species === 'fileShare') {
-      share = <FileShareBox />;
-    };
+    let share = <ShareBox />
+    if (this.props.species === 'fileShare') {
+      share = <FileShareBox />
+    }
 
     return (
       <Paper className={this.props.classes.root}>
         {share}
-        <Divider></Divider>
-        <Notification></Notification>
-        <Control></Control>
+        <Divider />
+        <Notification />
+        <Control />
       </Paper>
-    );
-  };
+    )
+  }
 }
 
-export default withStyles(styles)(Sidebar);
+export default withStyles(styles)(Sidebar)

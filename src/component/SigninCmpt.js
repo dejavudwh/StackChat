@@ -1,6 +1,6 @@
-import React from 'react';
-import { browserHistory } from 'react-router';
-import { 
+import React from 'react'
+import { browserHistory } from 'react-router'
+import {
   Avatar,
   CssBaseline,
   TextField,
@@ -12,9 +12,9 @@ import {
   Grid,
   Link,
   Button,
-  } from '@material-ui/core';
-import { withStyles } from '@material-ui/core/styles';
-import SignupDialog from '../container/Signin.js'
+} from '@material-ui/core'
+import { withStyles } from '@material-ui/core/styles'
+import SignupDialog from '../container/Signin'
 
 const styles = {
   paper: {
@@ -40,91 +40,91 @@ const styles = {
 
 class SigninCmpt extends React.Component {
   constructor(props) {
-    super(props);
-    this.handleClick = this.handleClick.bind(this);
-    this.changeSignup = this.changeSignup.bind(this);
+    super(props)
+    this.handleClick = this.handleClick.bind(this)
+    this.changeSignup = this.changeSignup.bind(this)
   }
 
   handleClick(event) {
-    event.preventDefault();
-    const path = '/home';
-    browserHistory.push(path);
-  };
+    event.preventDefault()
+    const path = '/home'
+    browserHistory.push(path)
+  }
 
   changeSignup() {
-    this.props.onSignup();
+    this.props.onSignup()
   }
 
   render() {
     return (
       <Container component="main" maxWidth="xs">
-      <SignupDialog />
-      <CssBaseline />
-      <div className={this.props.classes.paper}>
-        <Avatar className={this.props.classes.avatar}>
-          <SvgIcon htmlColor="white">
-          <path d="M18 8h-1V6c0-2.76-2.24-5-5-5S7 3.24 7 6v2H6c-1.1 0-2 .9-2 2v10c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V10c0-1.1-.9-2-2-2zm-6 9c-1.1 0-2-.9-2-2s.9-2 2-2 2 .9 2 2-.9 2-2 2zm3.1-9H8.9V6c0-1.71 1.39-3.1 3.1-3.1 1.71 0 3.1 1.39 3.1 3.1v2z"/>
-          </SvgIcon>
-        </Avatar>
-        <Typography component="h1" variant="h5">
-          Sign in
-        </Typography>
-        <form className={this.props.classes.form} noValidate>
-          <TextField
-            variant="outlined"
-            margin="normal"
-            required
-            fullWidth
-            id="email"
-            label="Email Address"
-            name="email"
-            autoComplete="email"
-            autoFocus
-            onChange={this.props.onChangeEmailInput}
-          />
-          <TextField
-            variant="outlined"
-            margin="normal"
-            required
-            fullWidth
-            name="password"
-            label="Password"
-            type="password"
-            id="password"
-            autoComplete="current-password"
-            onChange={this.props.onChangePwdInput}
-          />
-          <FormControlLabel
-            control={<Checkbox value="remember" color="primary" />}
-            label="Remember me"
-          />
-          <Button
-            type="submit"
-            fullWidth
-            variant="contained"
-            color="primary"
-            className={this.props.classes.submit}
-            onClick={this.handleClick}
-          >
-            {"sign in"}
-          </Button>
-          <Grid container>
-            <Grid item xs>
-              <Link href="#" variant="body2">
-                Forgot password?
-              </Link>
+        <SignupDialog />
+        <CssBaseline />
+        <div className={this.props.classes.paper}>
+          <Avatar className={this.props.classes.avatar}>
+            <SvgIcon htmlColor="white">
+              <path d="M18 8h-1V6c0-2.76-2.24-5-5-5S7 3.24 7 6v2H6c-1.1 0-2 .9-2 2v10c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V10c0-1.1-.9-2-2-2zm-6 9c-1.1 0-2-.9-2-2s.9-2 2-2 2 .9 2 2-.9 2-2 2zm3.1-9H8.9V6c0-1.71 1.39-3.1 3.1-3.1 1.71 0 3.1 1.39 3.1 3.1v2z" />
+            </SvgIcon>
+          </Avatar>
+          <Typography component="h1" variant="h5">
+            {'Sign in'}
+          </Typography>
+          <form className={this.props.classes.form} noValidate>
+            <TextField
+              variant="outlined"
+              margin="normal"
+              required
+              fullWidth
+              id="email"
+              label="Email Address"
+              name="email"
+              autoComplete="email"
+              autoFocus
+              onChange={this.props.onChangeEmailInput}
+            />
+            <TextField
+              variant="outlined"
+              margin="normal"
+              required
+              fullWidth
+              name="password"
+              label="Password"
+              type="password"
+              id="password"
+              autoComplete="current-password"
+              onChange={this.props.onChangePwdInput}
+            />
+            <FormControlLabel
+              control={<Checkbox value="remember" color="primary" />}
+              label="Remember me"
+            />
+            <Button
+              type="submit"
+              fullWidth
+              variant="contained"
+              color="primary"
+              className={this.props.classes.submit}
+              onClick={this.handleClick}
+            >
+              {'sign in'}
+            </Button>
+            <Grid container>
+              <Grid item xs>
+                <Link href="#" variant="body2">
+                  {'Forgot password?'}
+                </Link>
+              </Grid>
+              <Grid item>
+                <Link variant="body2" onClick={this.changeSignup}>
+                  {"Don't have an account? Sign Up"}
+                </Link>
+              </Grid>
             </Grid>
-            <Grid item>
-              <Link variant="body2" onClick={this.changeSignup}>
-                {"Don't have an account? Sign Up"}
-              </Link>
-            </Grid>
-          </Grid>
-        </form>
-      </div>
+          </form>
+        </div>
       </Container>
-    );
+    )
   }
 }
 
-export default withStyles(styles)(SigninCmpt);
+export default withStyles(styles)(SigninCmpt)

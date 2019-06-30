@@ -1,14 +1,16 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
-import './index.css';
-import App from './component/App.js';
-import Login from './container/Login.js';
-import MainPanel from './component/MainPanel.js';
-import { Router, Route, browserHistory, IndexRoute } from 'react-router';
-import Reducer from './reducer/reducer.js';
-import { createStore, applyMiddleware  } from 'redux';
-import { Provider } from 'react-redux';
-import thunk from 'redux-thunk';
+import React from 'react'
+import ReactDOM from 'react-dom'
+import './index.css'
+import {
+  Router, Route, browserHistory, IndexRoute,
+} from 'react-router'
+import { createStore, applyMiddleware } from 'redux'
+import { Provider } from 'react-redux'
+import thunk from 'redux-thunk'
+import App from './component/App'
+import Login from './container/Login'
+import MainPanel from './component/MainPanel'
+import Reducer from './reducer/reducer'
 
 const initialState = {
   register: {
@@ -20,15 +22,15 @@ const initialState = {
   login: {
     email: '',
     password: '',
-  }
+  },
 }
 
 const store = createStore(
   Reducer,
   // initialState,
-  applyMiddleware(thunk)
-);
-const unsubscribe = store.subscribe(() => console.log(store.getState()));
+  applyMiddleware(thunk),
+)
+const unsubscribe = store.subscribe(() => console.log(store.getState()))
 
 ReactDOM.render((
   <Provider store={store}>
@@ -39,4 +41,4 @@ ReactDOM.render((
       </Route>
     </Router>
   </Provider>
-), document.getElementById('root'));
+), document.getElementById('root'))

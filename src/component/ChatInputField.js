@@ -1,8 +1,8 @@
-import React from 'react';
-import { TextField } from '@material-ui/core';
-import { makeStyles } from '@material-ui/core/styles';
+import React from 'react'
+import { TextField } from '@material-ui/core'
+import { makeStyles } from '@material-ui/core/styles'
 
-const useStyles = makeStyles(theme => ({
+const useStyles = makeStyles(() => ({
   root: {
     display: 'flex',
     flexWrap: 'wrap',
@@ -11,10 +11,10 @@ const useStyles = makeStyles(theme => ({
     width: '510px',
     margin: '0px',
   },
-}));
+}))
 
 export default function ChatInputField() {
-  const classes = useStyles();
+  const classes = useStyles()
 
   return (
     <TextField
