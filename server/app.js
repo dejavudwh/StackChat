@@ -2,7 +2,7 @@ const express = require('express')
 const fs = require('fs')
 const cors = require('cors')
 const bodyParser = require('body-parser')
-const SignUp = require('./service/signup')
+const signupForUser = require('./service/login').signupForUser
 
 const app = express()
 
@@ -26,8 +26,7 @@ app.post('/api/signup', (req, res) => {
     email: req.body.email,
     password: req.body.password,
   }
-  SignUp(user)
-  res.send(JSON.stringify(user))
+  signupForUser(user, res)
 })
 
 app.listen(8008, () => console.log('App listening on port 8008!'))
