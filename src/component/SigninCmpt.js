@@ -29,11 +29,10 @@ const styles = {
     backgroundColor: 'red',
   },
   form: {
-    width: '100%', // Fix IE 11 issue.
+    width: '100%',
     marginTop: '8px',
   },
   submit: {
-    // margin: theme.spacing(3, 0, 2),
     margin: '24px 0px 40px 0px',
   },
 }
@@ -99,12 +98,11 @@ class SigninCmpt extends React.Component {
               label="Remember me"
             />
             <Button
-              type="submit"
               fullWidth
               variant="contained"
               color="primary"
               className={this.props.classes.submit}
-              onClick={this.handleClick}
+              onClick={this.props.signInUser}
             >
               {'sign in'}
             </Button>

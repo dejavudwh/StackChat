@@ -1,4 +1,4 @@
-import { isCorrectName, isCorrectEmail } from '../static/js/CheckInput'
+import { isCorrectName, isCorrectEmail, isCorrectPwd } from '../static/js/CheckInput'
 
 const { dialog } = require('electron').remote
 
@@ -39,15 +39,13 @@ const fetchSignUp = (username, email, password) => {
     email,
     password,
   }
-  console.log('fetch', data)
   return fetch(url, {
-    method: 'POST', // or 'PUT'
+    method: 'POST',
     body: JSON.stringify(data), // data can be `string` or {object}!
     headers: new Headers({
       'Content-Type': 'application/json',
     }),
   }).then(res => res.json())
-    .then(response => console.log('Success:', response))
 }
 
 export const signUpUser = () => (dispatch, getState) => {
@@ -55,12 +53,20 @@ export const signUpUser = () => (dispatch, getState) => {
   const email = getState().register.signupEmail
   const password = getState().register.signupPwd
 
-  if (!isCorrectName(username) || !isCorrectEmail(email)) {
+  if (!isCorrectName(username) || !isCorrectEmail(email) || !isCorrectPwd(password)) {
     dispatch(signUpNameFail())
   } else {
     fetchSignUp(username, email, password)
-      .then(() => {
-        dispatch(signUpSuccess())
+      .then((response) => {
+        console.log(response)
+        if (response.status === 200) {
+          dispatch(signUpSuccess())
+        } else if (response.status === 400) {
+          dialog.showMessageBox({
+            title: '提示',
+            message: response.message,
+          })
+        }
       })
       .catch(() => {
         dialog.showMessageBox({

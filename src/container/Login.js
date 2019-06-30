@@ -2,7 +2,7 @@ import { connect } from 'react-redux'
 import { withRouter } from 'react-router'
 import SigninCmpt from '../component/SigninCmpt'
 import { onSignup, closeSignup } from '../actions/index'
-import { loginEmailChange, loginPwdChange } from '../actions/login'
+import { loginEmailChange, loginPwdChange, signInUser } from '../actions/login'
 
 const mapStateToProps = state => ({
   signup: state.register.signup,
@@ -20,6 +20,9 @@ const mapDispatchToProps = dispatch => ({
   },
   onChangePwdInput: (event) => {
     dispatch(loginPwdChange(event.target.value))
+  },
+  signInUser: () => {
+    dispatch(signInUser())
   },
 })
 

@@ -59,3 +59,22 @@ export function isCorrectEmail(email) {
 
   return true
 }
+
+export function isCorrectPwd(password) {
+  if (password === null || password === '') {
+    dialog.showMessageBox({
+      title: '提示',
+      message: '请输入密码!',
+    })
+    return false
+  }
+  if (password.length < 6) {
+    dialog.showMessageBox({
+      title: '提示',
+      message: '密码长度过短!',
+    })
+    return false
+  }
+
+  return true
+}

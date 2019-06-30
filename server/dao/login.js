@@ -1,19 +1,12 @@
-const EMAIL_EXISTING = 'EMAIL_EXISTING'
+const {
+  EMAIL_EXISTING, USER_NO_EXIST, PASSWORD_ERROR, SIGNIN_SUCCESS,
+} = require('./constantInfo')
 
 function addUser(database, user) {
   database.collection('user').insertOne(user)
 }
 
 function checkRepeatEmail(database, email) {
-  // return new Promise((resolve) => {
-  //   const user = database.collection('user').findOne({ email })
-  //   console.log('check email', user, email)
-  //   if (user.email === email) {
-  //     throw new Error(EMAIL_EXISTING)
-  //   } else {
-  //     resolve(database)
-  //   }
-  // })
   return database.collection('user').findOne({ email })
     .then(user => new Promise((resolve, reject) => {
       if (user.email === email) {
@@ -24,5 +17,19 @@ function checkRepeatEmail(database, email) {
     }))
 }
 
+function verifyPassword(database, email, password) {
+  return database.collection('user').findOne({ email })
+    .then(user => new Promise((resolve, reject) => {
+      if (user.email === undefined) {
+        reject(USER_NO_EXIST)
+      } else if (user.password !== password) {
+        reject(PASSWORD_ERROR)
+      } else {
+        resolve(SIGNIN_SUCCESS)
+      }
+    }))
+}
+
 module.exports.addUser = addUser
 module.exports.checkRepeatEmail = checkRepeatEmail
+module.exports.verifyPassword = verifyPassword

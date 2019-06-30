@@ -3,6 +3,7 @@ const fs = require('fs')
 const cors = require('cors')
 const bodyParser = require('body-parser')
 const signupForUser = require('./service/login').signupForUser
+const signinForUser = require('./service/login').signinForUser
 
 const app = express()
 
@@ -16,8 +17,13 @@ app.get('/', (res, req) => {
   })
 })
 
-app.post('/api/validate', (res, req) => {
-
+app.post('/api/signin', (req, res) => {
+  const user = {
+    email: req.body.email,
+    password: req.body.password,
+  }
+  console.log(user)
+  signinForUser(user, res)
 })
 
 app.post('/api/signup', (req, res) => {
