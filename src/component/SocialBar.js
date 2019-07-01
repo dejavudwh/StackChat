@@ -1,7 +1,7 @@
 import React from 'react'
 import { Paper, Chip, SvgIcon } from '@material-ui/core'
 import { makeStyles } from '@material-ui/core/styles'
-import SearchBox from './SearchBox'
+import SearchFriends from '../container/SearchFriend'
 import RecentGroupBox from './RecentGroupBox'
 import RecentFriendsBox from './RecentFriendsBox'
 
@@ -25,7 +25,7 @@ export default function SocialBar() {
 
   return (
     <Paper className={classes.SocialBox} elevation="5" square="true">
-      <SearchBox />
+      <SearchFriends />
       <Chip
         icon={(
           <SvgIcon>
