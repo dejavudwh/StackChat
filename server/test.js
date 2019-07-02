@@ -7,7 +7,9 @@ const url = 'mongodb://localhost:27017/stackchat'
 //   console.log(db.collection('user').find({ username: 'dejavudwh' }))
 // })
 const email = '1001@qq.com'
+const cond = { useremail: '1001@qq.com' }
+const update = { $push: { friends: { useremail: '1003@qq.com' } } }
 
 MongoClient.connect(url, { useNewUrlParser: true })
-  .then(db => (db.db('stackchat').collection('user').findOne({ email })))
-  .then(result => console.log(result))
+  .then(db => (db.db('stackchat').collection('friend').updateOne(cond, update)))
+  .then(result => console.log(result.result.ok))

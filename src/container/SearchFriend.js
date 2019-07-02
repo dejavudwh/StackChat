@@ -1,7 +1,7 @@
 import { connect } from 'react-redux'
 import { withRouter } from 'react-router'
 import SearchBox from '../component/SearchBox'
-import { searchInputChange } from '../actions/friends'
+import { searchInputChange, addFriend } from '../actions/friends'
 
 
 const mapStateToProps = state => ({
@@ -11,6 +11,9 @@ const mapStateToProps = state => ({
 const mapDispatchToProps = dispatch => ({
   onChangeSearchInput: (event) => {
     dispatch(searchInputChange(event.target.value))
+  },
+  handleAddFriend: () => {
+    dispatch(addFriend())
   },
 })
 

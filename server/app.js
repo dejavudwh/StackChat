@@ -5,6 +5,8 @@ const cors = require('cors')
 const bodyParser = require('body-parser')
 const { signin, signup } = require('./service/router')
 
+const { addFriend } = this.require('./service/friend')
+
 app.use(bodyParser.json())
 app.use(cors())
 
@@ -12,12 +14,15 @@ app.post(signin.router, signin.func)
 
 app.post(signup.router, signup.func)
 
+const socketArray = []
+
 io.on('connection', (socket) => {
-  console.log(socket.id)
-  socket.on('news', (data) => {
-    console.log(data)
+  socketArray.push(socket)
+  console.log(socketArray.length)
+  socket.on('ADD_FRIEND', (addInfo) => {
+    console.log(addInfo)
+    addFriend(addInfo)
   })
-  socket.emit('fu', { sign: 'connect fuck' })
 })
 
 http.listen(8008, () => {
