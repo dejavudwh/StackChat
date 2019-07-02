@@ -4,15 +4,26 @@ const {
 
 function addUser(database, user) {
   database.collection('user').insertOne(user)
+    .then((result) => {
+      console.log(result)
+      const i = {
+        useremail: result.useremail,
+        username: result.username,
+        friends: [
+
+        ],
+      }
+      database.collection('friend').insertOne(i)
+    })
 }
 
 function checkRepeatEmail(database, email) {
   return database.collection('user').findOne({ email })
     .then(user => new Promise((resolve, reject) => {
-      if (user.email === email) {
-        reject(EMAIL_EXISTING)
-      } else {
+      if (user === null) {
         resolve(database)
+      } else if (user.email === email) {
+        reject(EMAIL_EXISTING)
       }
     }))
 }

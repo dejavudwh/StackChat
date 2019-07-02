@@ -15,6 +15,7 @@ function signupForUser(user, response) {
       response.send(SUCCESS_MESSAGE)
     })
     .catch((err) => {
+      console.log(err)
       if (err === 'EMAIL_EXISTING') {
         response.send(EAMIL_FAILED_MESSAGE)
       } else {
