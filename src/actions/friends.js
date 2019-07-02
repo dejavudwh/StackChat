@@ -14,13 +14,12 @@ export const searchInputChange = value => ({
 })
 
 export const addFriend = () => (dispatch, getState) => {
-  const socket = io('http://localhost:8008')
+  const socket = getState().connect.socket
 
   socket.emit('ADD_FRIEND', {
     origin: getState().login.email,
     dest: getState().search.input,
   })
-  console.log('asd')
   socket.on('add_friend_event', (data) => {
     console.log(data)
   })

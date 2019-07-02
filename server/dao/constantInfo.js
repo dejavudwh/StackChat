@@ -32,7 +32,7 @@ exports.PASSWORD_ERROR_MESSAGE = JSON.stringify({
 })
 
 exports.ADD_FRIEND_SUCCESS_MESSAGE = JSON.stringify({
-  status: 400,
+  status: 200,
   type: 'ADD_FRIEND_SUCCESS',
   message: 'Friend added successfully',
 })

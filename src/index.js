@@ -7,7 +7,7 @@ import {
 import { createStore, applyMiddleware } from 'redux'
 import { Provider } from 'react-redux'
 import thunk from 'redux-thunk'
-import App from './component/App'
+import App from './container/App'
 import Login from './container/Login'
 import MainPanel from './component/MainPanel'
 import Reducer from './reducer/reducer'

@@ -14,7 +14,7 @@ function findFriend(database, destEmail) {
 function addFriend(database, { origin, dest }) {
   const cond = { useremail: origin }
   const update = { $push: { friends: { useremail: dest } } }
-  database.collection('friend').updateOne(cond, update)
+  return database.collection('friend').updateOne(cond, update)
     .then(res => new Promise((resolve, reject) => {
       console.log('res', res.result.ok)
       if (res.result.ok === 1) {

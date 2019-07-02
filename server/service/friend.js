@@ -11,12 +11,12 @@ function addFriendService({ origin, dest }, socket) {
     .then(db => findFriend(db, dest))
     .then(db => addFriend(db, { origin, dest }))
     .then((message) => {
+      console.log('mes', message)
       if (message === ADD_FRIEND_SUCCESS) {
         socket.emit(addFriendEvent, ADD_FRIEND_SUCCESS_MESSAGE)
       }
     })
     .catch((message) => {
-      // console.log(message)
       if (message === USER_NO_EXIST) {
         socket.emit(addFriendEvent, USER_NO_EXIST_MESSAGE)
       } else if (message === ADD_FRIEND_FAILED) {
