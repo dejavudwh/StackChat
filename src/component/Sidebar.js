@@ -3,7 +3,7 @@ import { Paper, Divider } from '@material-ui/core'
 import { withStyles } from '@material-ui/core/styles'
 import ShareBox from './ShareBox'
 import Notification from './Notification'
-import Control from './Control'
+import Control from '../container/control'
 import FileShareBox from './FileShareBox'
 
 const styles = {

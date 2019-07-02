@@ -10,7 +10,7 @@ function handleSocket(socket) {
   }
   socketArray.push(s)
   console.log(socketArray)
-  socket.on('ADD_FRIEND', (addInfo) => {
+  socket.on('add_friend', (addInfo) => {
     // console.log(addInfo)
     addFriend(addInfo, socket)
   })

@@ -1,3 +1,5 @@
+const { dialog } = require('electron').remote
+
 export const addFriendSuccess = () => {
 
 }
@@ -14,11 +16,15 @@ export const searchInputChange = value => ({
 export const addFriend = () => (dispatch, getState) => {
   const socket = getState().connect.socket
 
-  socket.emit('ADD_FRIEND', {
+  socket.emit('add_friend', {
     origin: getState().login.email,
     dest: getState().search.input,
   })
   socket.on('add_friend_event', (data) => {
-    console.log(data)
+    const message = JSON.parse(data).message
+    dialog.showMessageBox({
+      title: '提示',
+      message,
+    })
   })
 }
