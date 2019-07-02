@@ -4,8 +4,7 @@ const io = require('socket.io')(http)
 const cors = require('cors')
 const bodyParser = require('body-parser')
 const { signin, signup } = require('./service/router')
-
-const { addFriend } = this.require('./service/friend')
+const addFriend = require('./service/friend').addFriend
 
 app.use(bodyParser.json())
 app.use(cors())
@@ -21,7 +20,7 @@ io.on('connection', (socket) => {
   console.log(socketArray.length)
   socket.on('ADD_FRIEND', (addInfo) => {
     console.log(addInfo)
-    addFriend(addInfo)
+    addFriend(addInfo, socket)
   })
 })
 
