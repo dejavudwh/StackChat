@@ -20,7 +20,7 @@ export const addFriend = () => (dispatch, getState) => {
     origin: getState().login.email,
     dest: getState().search.input,
   })
-
+  console.log('asd')
   socket.on('add_friend_event', (data) => {
     console.log(data)
   })

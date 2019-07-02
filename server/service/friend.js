@@ -16,7 +16,7 @@ function addFriendService({ origin, dest }, socket) {
       }
     })
     .catch((message) => {
-      console.log(message)
+      // console.log(message)
       if (message === USER_NO_EXIST) {
         socket.emit(addFriendEvent, USER_NO_EXIST_MESSAGE)
       } else if (message === ADD_FRIEND_FAILED) {

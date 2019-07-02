@@ -54,4 +54,10 @@ export const signInUser = () => (dispatch, getState) => {
         dispatch(signInFail())
       }
     })
+    .catch(() => {
+      dialog.showMessageBox({
+        title: '提示',
+        message: 'Server error',
+      })
+    })
 }

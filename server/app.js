@@ -19,9 +19,10 @@ io.on('connection', (socket) => {
   socketArray.push(socket)
   console.log(socketArray.length)
   socket.on('ADD_FRIEND', (addInfo) => {
-    console.log(addInfo)
+    // console.log(addInfo)
     addFriend(addInfo, socket)
   })
+  socket.emit('add_friend_event', { data: 'asd' })
 })
 
 http.listen(8008, () => {
