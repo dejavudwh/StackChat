@@ -7,9 +7,9 @@ import {
 import { createStore, applyMiddleware } from 'redux'
 import { Provider } from 'react-redux'
 import thunk from 'redux-thunk'
-import App from './container/App'
+import App from './component/App'
 import Login from './container/Login'
-import MainPanel from './component/MainPanel'
+import Panel from './container/Panel'
 import Reducer from './reducer/reducer'
 
 const initialState = {
@@ -37,7 +37,7 @@ ReactDOM.render((
     <Router history={browserHistory}>
       <Route path="/" component={App}>
         <IndexRoute component={Login} />
-        <Route path="/home" component={MainPanel} />
+        <Route path="/home" component={Panel} />
       </Route>
     </Router>
   </Provider>

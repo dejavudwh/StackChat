@@ -1,6 +1,6 @@
 import { connect } from 'react-redux'
 import { withRouter } from 'react-router'
-import App from '../component/App'
+import MainPanel from '../component/MainPanel'
 import { openSocket } from '../actions/socketswitch'
 
 const mapStateToProps = state => ({
@@ -12,9 +12,9 @@ const mapDispatchToProps = dispatch => ({
   },
 })
 
-const Application = connect(
+const Panel = connect(
   mapStateToProps,
   mapDispatchToProps,
-)(App)
+)(MainPanel)
 
-export default withRouter(Application)
+export default withRouter(Panel)

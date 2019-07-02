@@ -12,8 +12,12 @@ export const disconnectSocket = socket => ({
   type: 'DISCONNECT_SOCKET',
 })
 
-export const openSocket = () => (dispatch) => {
-  const socket = io('http://localhost:8008')
+export const openSocket = () => (dispatch, getState) => {
+  // const query = `user=${getState().login.email}`
+  const query = encodeURIComponent(`${getState().login.email}`)
+  const url = `http://localhost:8008?user=${query}`
+  console.log(url)
+  const socket = io(url)
   socket.on('connect', () => {
     dispatch(connectSocketSuccess(socket))
   })

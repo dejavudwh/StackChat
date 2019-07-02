@@ -17,7 +17,7 @@ const socketArray = []
 
 io.on('connection', (socket) => {
   socketArray.push(socket)
-  console.log(socketArray.length)
+  console.log(socket.handshake.query)
   socket.on('ADD_FRIEND', (addInfo) => {
     // console.log(addInfo)
     addFriend(addInfo, socket)
