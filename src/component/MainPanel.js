@@ -6,6 +6,8 @@ import Sidebar from './Sidebar'
 import InfoTable from './InfoTable'
 import AddressBook from './AddressBook'
 
+const { ipcRenderer } = require('electron')
+
 class MainPanel extends React.Component {
   constructor(props) {
     super(props)
@@ -23,13 +25,13 @@ class MainPanel extends React.Component {
   }
 
   componentDidMount() {
-    // const socket = io('http://localhost:8008')
-    // socket.on('add_friend_event', (data) => {
-    //   console.log(data)
-    // })
     this.props.openSocket()
-  }
 
+    ipcRenderer.on('close_socket', () => {
+      const email = this.props.useremail
+      this.props.socket.emit('will_close', email)
+    })
+  }
 
   changeLeftSidebar(event) {
     const t = event.target.id === '' ? this.state.LeftSidebar : event.target.id

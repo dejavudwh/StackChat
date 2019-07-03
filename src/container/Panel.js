@@ -4,6 +4,8 @@ import MainPanel from '../component/MainPanel'
 import { openSocket } from '../actions/socketswitch'
 
 const mapStateToProps = state => ({
+  socket: state.connect.socket,
+  useremail: state.login.email,
 })
 
 const mapDispatchToProps = dispatch => ({

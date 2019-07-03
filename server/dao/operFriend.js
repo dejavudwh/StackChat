@@ -16,7 +16,6 @@ function addFriend(database, { origin, dest }) {
   const update = { $push: { friends: { useremail: dest } } }
   return database.collection('friend').updateOne(cond, update)
     .then(res => new Promise((resolve, reject) => {
-      console.log('res', res.result.ok)
       if (res.result.ok === 1) {
         resolve(ADD_FRIEND_SUCCESS)
       } else {

@@ -1,5 +1,3 @@
-const { ipcRenderer } = require('electron')
-
 const initialState = {
   socket: '',
 }
@@ -14,7 +12,6 @@ const connectSocket = (state, action) => {
     })
   }
   if (action.type === 'CLOSE_WINDOW') {
-    ipcRenderer.send('close_window')
     return {}
   }
 

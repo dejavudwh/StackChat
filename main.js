@@ -20,6 +20,10 @@ function createWindow() {
   win.on('closed', () => {
     win = null
   })
+
+  win.on('close', () => {
+    win.webContents.send('close_socket')
+  })
 }
 
 ipcMain.on('close_window', () => {
