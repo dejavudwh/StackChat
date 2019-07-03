@@ -3,7 +3,7 @@ const { USER_NO_EXIST, ADD_FRIEND_FAILED, ADD_FRIEND_SUCCESS } = require('./cons
 function findFriend(database, destEmail) {
   return database.collection('user').findOne({ email: destEmail })
     .then(user => new Promise((resolve, reject) => {
-      if (user.email === null) {
+      if (user === null) {
         reject(USER_NO_EXIST)
       } else {
         resolve(database)

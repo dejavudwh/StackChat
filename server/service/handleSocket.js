@@ -1,5 +1,3 @@
-const addFriend = require('./friend').addFriend
-
 const socketArray = []
 
 function deleteSocketFromArray(closeUser) {
@@ -10,28 +8,25 @@ function deleteSocketFromArray(closeUser) {
   }
 }
 
-function handleSocket(socket) {
+function saveSocket(socket) {
   const query = socket.handshake.query
   const s = {
     user: query.user,
     socket,
   }
   socketArray.push(s)
-  console.log('before', socketArray)
-  socket.on('add_friend', (addInfo) => {
-    // console.log(addInfo)
-    addFriend(addInfo, socket)
-  })
-
-  socket.on('will_close', (closeUser) => {
-    console.log(closeUser)
-    deleteSocketFromArray(closeUser)
-    console.log('after', socketArray)
-  })
-
-  socket.on('disconnect', (reason) => {
-    console.log('after', socketArray)
-  })
 }
 
-module.exports = handleSocket
+function findSocketFromEmail(email) {
+  for (let i = 0; i < socketArray.length; i += 1) {
+    if (socketArray[i].user === email) {
+      return socketArray[i]
+    }
+  }
+
+  return null
+}
+
+module.exports.saveSocket = saveSocket
+module.exports.findSocketFromEmail = findSocketFromEmail
+module.exports.deleteSocket = deleteSocketFromArray

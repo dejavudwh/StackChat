@@ -4,7 +4,7 @@ const {
 } = require('../dao/constantInfo')
 const findFriend = require('../dao/operFriend').findFriend
 const addFriend = require('../dao/operFriend').addFriend
-const { addFriendEvent } = require('./socketEvent')
+const findSocketFromEmail = require('./handleSocket').findSocketFromEmail
 
 function addFriendService({ origin, dest }, socket) {
   mongonConnect
@@ -13,16 +13,41 @@ function addFriendService({ origin, dest }, socket) {
     .then((message) => {
       console.log('mes', message)
       if (message === ADD_FRIEND_SUCCESS) {
-        socket.emit(addFriendEvent, ADD_FRIEND_SUCCESS_MESSAGE)
+        socket.emit('add_friend_response', ADD_FRIEND_SUCCESS_MESSAGE)
       }
     })
     .catch((message) => {
       if (message === USER_NO_EXIST) {
-        socket.emit(addFriendEvent, USER_NO_EXIST_MESSAGE)
+        socket.emit('add_friend_response', USER_NO_EXIST_MESSAGE)
       } else if (message === ADD_FRIEND_FAILED) {
-        socket.emit(addFriendEvent, ADD_FRIEND_FAILED_MESSAGE)
+        socket.emit('add_friend_response', ADD_FRIEND_FAILED_MESSAGE)
+      }
+    })
+}
+
+function sendFriendRequest({ origin, dest }, socket) {
+  mongonConnect
+    .then(db => findFriend(db, dest))
+    .then(() => {
+      const destUser = findSocketFromEmail(dest)
+      console.log(destUser)
+      destUser.socket.emit('add_friend_request', { origin, dest })
+    })
+    .then((message) => {
+      console.log('mes', message)
+      if (message === ADD_FRIEND_SUCCESS) {
+        socket.emit('add_friend_response', ADD_FRIEND_SUCCESS_MESSAGE)
+      }
+    })
+    .catch((message) => {
+      console.log(message)
+      if (message === USER_NO_EXIST) {
+        socket.emit('add_friend_response', USER_NO_EXIST_MESSAGE)
+      } else if (message === ADD_FRIEND_FAILED) {
+        socket.emit('add_friend_response', ADD_FRIEND_FAILED_MESSAGE)
       }
     })
 }
 
 module.exports.addFriend = addFriendService
+module.exports.sendFriendRequest = sendFriendRequest
