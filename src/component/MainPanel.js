@@ -26,7 +26,7 @@ class MainPanel extends React.Component {
 
   componentDidMount() {
     this.props.openSocket()
-
+    // this.props.receivesMessage()
     ipcRenderer.on('close_socket', () => {
       const email = this.props.useremail
       this.props.socket.emit('will_close', email)

@@ -31,13 +31,10 @@ function sendFriendRequest({ origin, dest }, socket) {
     .then(() => {
       const destUser = findSocketFromEmail(dest)
       console.log(destUser)
-      destUser.socket.emit('add_friend_request', { origin, dest })
-    })
-    .then((message) => {
-      console.log('mes', message)
-      if (message === ADD_FRIEND_SUCCESS) {
-        socket.emit('add_friend_response', ADD_FRIEND_SUCCESS_MESSAGE)
+      const mr = {
+        message: `Friend add request from ${origin}`,
       }
+      destUser.socket.emit('add_friend_request', mr)
     })
     .catch((message) => {
       console.log(message)

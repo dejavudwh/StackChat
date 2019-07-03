@@ -32,5 +32,4 @@ export const addFriend = () => (dispatch, getState) => {
     // const message = JSON.parse(data).message
     console.log(data)
   })
-  console.log('listen request')
 }

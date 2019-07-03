@@ -2,7 +2,7 @@ import React from 'react'
 import { Paper, Divider } from '@material-ui/core'
 import { withStyles } from '@material-ui/core/styles'
 import ShareBox from './ShareBox'
-import Notification from './Notification'
+import Notification from '../container/Notification'
 import Control from '../container/control'
 import FileShareBox from './FileShareBox'
 

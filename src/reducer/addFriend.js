@@ -18,4 +18,4 @@ const addFriends = (state, action) => {
   }
 }
 
-module.exports = addFriends
+export default addFriends
