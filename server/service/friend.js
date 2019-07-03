@@ -30,7 +30,7 @@ function sendFriendRequest({ origin, dest }, socket) {
     .then(db => findFriend(db, dest))
     .then(() => {
       const destUser = findSocketFromEmail(dest)
-      console.log(destUser)
+      console.log(destUser.user)
       const mr = {
         message: `Friend add request from ${origin}`,
       }

@@ -8,17 +8,18 @@ export const newMessage = value => ({
 export const waitNotice = () => (dispatch, getState) => {
   setTimeout(() => {
     const socket = getState().connect.socket
-    if (socket === null) {
+    if (socket === undefined) {
       dialog.showMessageBox({
         title: '提示',
         message: 'Server error',
       })
     } else {
-      console.log('socket', socket)
+      console.log('listen request')
       socket.on('add_friend_request', (data) => {
-        const message = JSON.parse(data).message
+        console.log(data)
+        const message = data.message
         dispatch(newMessage(message))
       })
     }
-  }, 5000)
+  }, 3000)
 }

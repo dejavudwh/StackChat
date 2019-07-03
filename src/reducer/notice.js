@@ -1,6 +1,5 @@
 const initialState = {
   message: [
-    '',
   ],
 }
 
@@ -9,8 +8,10 @@ const addNewMessage = (state, action) => {
     return initialState
   }
   if (action.type === 'NEW_MESSAGE') {
-    let message = state.notification.message
-    message = message.push(action.value)
+    const message = state.message
+    console.log('state before', message, message instanceof Array)
+    message.push(action.value)
+    console.log('state after', message, action.value)
     return Object.assign({}, state, {
       message,
     })

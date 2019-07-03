@@ -27,9 +27,4 @@ export const addFriend = () => (dispatch, getState) => {
       message,
     })
   })
-
-  socket.on('add_friend_request', (data) => {
-    // const message = JSON.parse(data).message
-    console.log(data)
-  })
 }
