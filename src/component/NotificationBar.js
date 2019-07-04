@@ -9,6 +9,7 @@ const styles = {
     width: '263px',
     height: '150px',
     backgroundColor: 'rgba(105, 105, 105)',
+    textOverflow: 'ellipsis',
   },
   title: {
     fontSize: '18px',
@@ -19,7 +20,7 @@ const styles = {
     fontSize: '15px',
     height: '30px',
     color: 'white',
-    margin: '5px',
+    margin: '3px',
     backgroundColor: 'rgba(67, 205, 128)',
   },
 }
@@ -30,6 +31,14 @@ class NotificationBar extends React.Component {
   }
 
   render() {
+    const messageList = this.props.messageList.map((message, index) => (
+      <Paper key={index} className={this.props.classes.notice}>
+        <Typography align="center" variant="overline" component="h1">
+          {message.substring(0, 28)}
+        </Typography>
+      </Paper>
+    ))
+
     return (
       <Paper className={this.props.classes.root}>
         <Typography className={this.props.classes.title} variant="overline" component="h1">
@@ -37,21 +46,7 @@ class NotificationBar extends React.Component {
         </Typography>
         <Divider />
         <Scrollbars style={{ width: 266, height: 90 }}>
-          <Paper className={this.props.classes.notice}>
-            <Typography align="center" variant="overline" component="h1">
-              {'I love candy. I love cookies.'}
-            </Typography>
-          </Paper>
-          <Paper className={this.props.classes.notice}>
-            <Typography align="center" variant="overline" component="h1">
-              {'I love cheesecake. I love ch'}
-            </Typography>
-          </Paper>
-          <Paper className={this.props.classes.notice}>
-            <Typography align="center" variant="overline" component="h1">
-              {'I love cheesecake. I love ch'}
-            </Typography>
-          </Paper>
+          {messageList}
         </Scrollbars>
       </Paper>
     )

@@ -4,7 +4,7 @@ import NotificationBar from '../component/NotificationBar'
 import { waitNotice } from '../actions/notice'
 
 const mapStateToProps = state => ({
-  message: state.notification.message,
+  messageList: state.notification.message,
 })
 
 const mapDispatchToProps = dispatch => ({
