@@ -21,5 +21,5 @@ export const waitNotice = () => (dispatch, getState) => {
         dispatch(newMessage(message))
       })
     }
-  }, 3000)
+  }, 1000)
 }
