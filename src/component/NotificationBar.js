@@ -30,11 +30,15 @@ class NotificationBar extends React.Component {
     this.props.receivesMessage()
   }
 
+  handleClickFriend() {
+    // alert('asd')
+  }
+
   render() {
     const messageList = this.props.messageList.map((message, index) => (
-      <Paper key={index} className={this.props.classes.notice}>
+      <Paper key={index} className={this.props.classes.notice} onClick={message.type === 'friend' ? this.handleClickFriend : ''}>
         <Typography align="center" variant="overline" component="h1">
-          {message.substring(0, 28)}
+          {message.value.substring(0, 28)}
         </Typography>
       </Paper>
     ))

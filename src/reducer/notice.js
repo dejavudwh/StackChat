@@ -10,7 +10,7 @@ const addNewMessage = (state, action) => {
   if (action.type === 'NEW_MESSAGE') {
     const message = state.message.concat()
     console.log('state before', message, message instanceof Array)
-    message.push(action.value)
+    message.push({ type: 'friend', value: action.value })
     console.log('state after', message, action.value)
     return Object.assign({}, state, {
       message,
