@@ -5,6 +5,10 @@ export const newMessage = value => ({
   value,
 })
 
+export const deleteMessage = () => ({
+  type: 'DELETE_MESSAGE',
+})
+
 export const waitNotice = () => (dispatch, getState) => {
   setTimeout(() => {
     const socket = getState().connect.socket
@@ -14,12 +18,23 @@ export const waitNotice = () => (dispatch, getState) => {
         message: 'Server error',
       })
     } else {
-      console.log('listen request')
       socket.on('add_friend_request', (data) => {
-        console.log(data)
         const message = data.message
         dispatch(newMessage(message))
       })
     }
   }, 1000)
+}
+
+export const responseMessage = pick => (dispatch, getState) => {
+  const response = {
+    pick,
+    info: {
+      origin: getState().login.email,
+      dest: getState().search.input,
+    },
+  }
+  const socket = getState().connect.socket
+  console.log('fuck response add r')
+  socket.emit('add_friend_response', response)
 }

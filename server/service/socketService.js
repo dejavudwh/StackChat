@@ -10,7 +10,7 @@ function socketService(socket) {
   })
 
   socket.on('add_friend_response', (data) => {
-
+    console.log(data)
   })
 
   socket.on('will_close', (closeUser) => {

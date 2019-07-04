@@ -35,11 +35,17 @@ class NotificationBar extends React.Component {
 
   handleClickFriend(event) {
     const message = this.props.messageList[event.target.id]
-    console.log('fuck mes', event.target.id)
     dialog.showMessageBox({
       title: '提示',
       buttons: ['Agreed', 'Refused'],
       message: message.value,
+    }, (response) => {
+      console.log('responseMessage')
+      if (response === 0) {
+        this.props.responseMessage(true)
+      } else {
+        this.props.responseMessage(false)
+      }
     })
   }
 
