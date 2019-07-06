@@ -6,6 +6,9 @@ import {
 } from '@material-ui/core'
 import Avator1 from '../static/images/avatar/3.jpg'
 import Avator2 from '../static/images/avatar/2.jpg'
+import Avator6 from '../static/images/avatar/6.jpg'
+import Avator7 from '../static/images/avatar/7.jpg'
+import Avator8 from '../static/images/avatar/8.jpg'
 
 const useStyles = makeStyles(() => ({
   root: {
@@ -86,35 +89,50 @@ function FriendList() {
       <Divider variant="inset" component="li" />
       <ListItem className={classes.Item} alignItems="flex-start">
         <ListItemAvatar>
-          <Avatar alt="Remy Sharp" src="/static/images/avatar/3.jpg" />
+          <Avatar alt="Remy Sharp" src={Avator6} />
         </ListItemAvatar>
         <ListItemText
           className={classes.Text}
           primary="Oui Oui"
           secondary=" — Do you have Paris recomm"
         />
+        <IconButton size="medium" edge="end">
+          <SvgIcon htmlColor="green">
+            <path d="M20 2H4c-1.1 0-1.99.9-1.99 2L2 22l4-4h14c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zM9 11H7V9h2v2zm4 0h-2V9h2v2zm4 0h-2V9h2v2z" />
+          </SvgIcon>
+        </IconButton>
       </ListItem>
       <Divider variant="inset" component="li" />
       <ListItem className={classes.Item} alignItems="flex-start">
         <ListItemAvatar>
-          <Avatar alt="Remy Sharp" src="/static/images/avatar/3.jpg" />
+          <Avatar alt="Remy Sharp" src={Avator8} />
         </ListItemAvatar>
         <ListItemText
           className={classes.Text}
-          primary="Oui Oui"
+          primary="Snake"
           secondary=" — Do you have Paris recomm"
         />
+        <IconButton size="medium" edge="end">
+          <SvgIcon htmlColor="green">
+            <path d="M20 2H4c-1.1 0-1.99.9-1.99 2L2 22l4-4h14c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zM9 11H7V9h2v2zm4 0h-2V9h2v2zm4 0h-2V9h2v2z" />
+          </SvgIcon>
+        </IconButton>
       </ListItem>
       <Divider variant="inset" component="li" />
       <ListItem className={classes.Item} alignItems="flex-start">
         <ListItemAvatar>
-          <Avatar alt="Remy Sharp" src="/static/images/avatar/3.jpg" />
+          <Avatar alt="Remy Sharp" src={Avator7} />
         </ListItemAvatar>
         <ListItemText
           className={classes.Text}
           primary="Oui Oui"
           secondary=" — Do you have Paris recomm"
         />
+        <IconButton size="medium" edge="end">
+          <SvgIcon htmlColor="green">
+            <path d="M20 2H4c-1.1 0-1.99.9-1.99 2L2 22l4-4h14c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zM9 11H7V9h2v2zm4 0h-2V9h2v2zm4 0h-2V9h2v2z" />
+          </SvgIcon>
+        </IconButton>
       </ListItem>
       <Divider variant="inset" component="li" />
       <ListItem className={classes.Item} alignItems="flex-start">

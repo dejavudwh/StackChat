@@ -33,5 +33,10 @@ function addFriend(database, { origin, dest }) {
     }))
 }
 
+function queryFriendList(database, useremail) {
+  return database.collection('friend').findOne({ useremail })
+}
+
 module.exports.findFriend = findFriend
 module.exports.addFriend = addFriend
+module.exports.queryFriendList = queryFriendList

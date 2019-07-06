@@ -3,7 +3,7 @@ import {
   Avatar, Card, CardActionArea, Button, CardActions, Typography,
 } from '@material-ui/core'
 import { makeStyles } from '@material-ui/core/styles'
-import AvatarImg from '../static/images/avatar/1.jpg'
+import Avatar1 from '../static/images/avatar/10.jpg'
 
 const useStyle = makeStyles(() => ({
   GroupCard: {
@@ -54,7 +54,7 @@ export default function GroupCard() {
 
   return (
     <div className={classes.GroupCard}>
-      <Avatar className={classes.Avatar} src={AvatarImg} />
+      <Avatar className={classes.Avatar} src={Avatar1} />
       <Card className={classes.card} onClick={handleClick}>
         <CardActionArea className={classes.CardActionArea}>
           <Typography variant="button" align="left" noWrap="true" className={classes.AvatarText}>

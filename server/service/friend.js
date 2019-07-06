@@ -4,6 +4,7 @@ const {
 } = require('../dao/constantInfo')
 const findFriend = require('../dao/operFriend').findFriend
 const addFriend = require('../dao/operFriend').addFriend
+const queryFriendList = require('../dao/operFriend').queryFriendList
 const findSocketFromEmail = require('./handleSocket').findSocketFromEmail
 
 function addFriendService(origin, dest, socket) {
@@ -47,5 +48,17 @@ function sendFriendRequest({ origin, dest }, socket) {
     })
 }
 
+function obtainFriendList(useremail, socket) {
+  mongonConnect
+    .then(db => queryFriendList(db, useremail))
+    .then((result) => {
+      socket.emit('obtain_friend_list', result)
+    })
+    .catch((err) => {
+      console.log(err)
+    })
+}
+
 module.exports.addFriend = addFriendService
 module.exports.sendFriendRequest = sendFriendRequest
+module.exports.obtainFriendList = obtainFriendList
