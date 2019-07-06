@@ -48,14 +48,14 @@ class FriendsListCmpt extends React.Component {
     console.log('friendList', this.props.friendList)
   }
 
-  handleClick = () => {
-    alert('ada')
+  handleClick = (email) => {
+    alert(email)
   }
 
   render() {
     const friendList = this.props.friendList.map((item, index) => (
-      <MesBadge key={index} className={this.props.classes.Badeg} badgeContent={99} color="secondary">
-        <ListItem className={this.props.classes.Item} alignItems="flex-start" onClick={this.handleClick}>
+      <MesBadge key={index} className={this.props.classes.Badeg} badgeContent={6} color="secondary" onClick={() => { this.handleClick(item.useremail) }}>
+        <ListItem className={this.props.classes.Item} alignItems="flex-start">
           <ListItemAvatar>
             <Avatar alt="Remy Sharp" src={Avator1} />
           </ListItemAvatar>

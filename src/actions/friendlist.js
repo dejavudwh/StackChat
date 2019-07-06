@@ -13,5 +13,5 @@ export const socketFriends = () => (dispatch, getState) => {
       console.log(data)
       dispatch(updateList(data))
     })
-  }, 1000)
+  }, 500)
 }
