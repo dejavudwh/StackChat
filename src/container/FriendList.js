@@ -1,12 +1,15 @@
 import { connect } from 'react-redux'
 import FriendsListCmpt from '../component/FriendsListCmpt'
+import { socketFriends } from '../actions/friendlist'
 
 const mapStateToProps = state => ({
-  signup: state.register.signup,
+  friendList: state.friends.list,
 })
 
 const mapDispatchToProps = dispatch => ({
-
+  socketFriendList: () => {
+    dispatch(socketFriends())
+  },
 })
 
 const FriendList = connect(

@@ -1,7 +1,7 @@
 import React from 'react'
 import { Paper } from '@material-ui/core'
 import { makeStyles } from '@material-ui/core/styles'
-import FriendsListCmpt from './FriendsListCmpt'
+import FriendList from '../container/FriendList'
 
 const useStyle = makeStyles(() => ({
   root: {
@@ -18,7 +18,7 @@ export default function RecentFriendsBox() {
 
   return (
     <Paper className={classes.root}>
-      <FriendsListCmpt />
+      <FriendList />
     </Paper>
   )
 }

@@ -1,6 +1,6 @@
 const initialState = {
-  friendList: [
-
+  list: [
+    '',
   ],
 }
 
@@ -10,9 +10,10 @@ const updateFriendList = (state, action) => {
   }
   if (action.type === 'UPDATE_FRIEND_LIST') {
     return Object.assign({}, state, {
-      friendList: action.value,
+      list: action.value,
     })
   }
+  return state
 }
 
 export default updateFriendList

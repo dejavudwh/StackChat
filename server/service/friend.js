@@ -52,7 +52,7 @@ function obtainFriendList(useremail, socket) {
   mongonConnect
     .then(db => queryFriendList(db, useremail))
     .then((result) => {
-      socket.emit('obtain_friend_list', result)
+      socket.emit('obtain_friend_list', result.friends)
     })
     .catch((err) => {
       console.log(err)
