@@ -20,11 +20,4 @@ export const addFriend = () => (dispatch, getState) => {
     origin: getState().login.email,
     dest: getState().search.input,
   })
-  socket.on('add_friend_response', (data) => {
-    const message = JSON.parse(data).message
-    dialog.showMessageBox({
-      title: '提示',
-      message,
-    })
-  })
 }

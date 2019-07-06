@@ -1,8 +1,9 @@
 const { dialog } = require('electron').remote
 
-export const newMessage = value => ({
+export const newMessage = data => ({
   type: 'NEW_MESSAGE',
-  value,
+  origin: data.origin,
+  value: data.message,
 })
 
 export const deleteMessage = () => ({
@@ -19,8 +20,13 @@ export const waitNotice = () => (dispatch, getState) => {
       })
     } else {
       socket.on('add_friend_request', (data) => {
-        const message = data.message
-        dispatch(newMessage(message))
+        // const message = data.message
+        dispatch(newMessage(data))
+      })
+      socket.on('add_friend_response', (data) => {
+        const res = JSON.parse(data)
+        console.log('add_friend_response', res)
+        dispatch(newMessage(res))
       })
     }
   }, 1000)
@@ -31,7 +37,7 @@ export const responseMessage = pick => (dispatch, getState) => {
     pick,
     info: {
       origin: getState().login.email,
-      dest: getState().search.input,
+      dest: getState().notification.originEmail,
     },
   }
   const socket = getState().connect.socket

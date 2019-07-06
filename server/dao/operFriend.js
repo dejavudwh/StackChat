@@ -17,10 +17,19 @@ function addFriend(database, { origin, dest }) {
   return database.collection('friend').updateOne(cond, update)
     .then(res => new Promise((resolve, reject) => {
       if (res.result.ok === 1) {
-        resolve(ADD_FRIEND_SUCCESS)
-      } else {
-        reject(ADD_FRIEND_FAILED)
+        const cond2 = { useremail: dest }
+        const update2 = { $push: { friends: { useremail: origin } } }
+        return database.collection('friend').updateOne(cond2, update2)
+          .then((seRes) => {
+            if (seRes.result.ok === 1) {
+              resolve(ADD_FRIEND_SUCCESS)
+            } else {
+              reject(ADD_FRIEND_FAILED)
+            }
+          })
       }
+      reject(ADD_FRIEND_FAILED)
+      return false
     }))
 }
 

@@ -23,6 +23,7 @@ exports.SIGNIN_SUCCESS_MESSAGE = JSON.stringify({
 exports.USER_NO_EXIST_MESSAGE = JSON.stringify({
   status: 400,
   type: 'USER_NO_EXIST',
+  origin: ' ',
   message: 'The account does not exist',
 })
 
@@ -34,11 +35,20 @@ exports.PASSWORD_ERROR_MESSAGE = JSON.stringify({
 exports.ADD_FRIEND_SUCCESS_MESSAGE = JSON.stringify({
   status: 200,
   type: 'ADD_FRIEND_SUCCESS',
-  message: 'Friend added successfully, Wait for the response',
+  origin: ' ',
+  message: 'Friend added successfully',
 })
 
 exports.ADD_FRIEND_FAILED_MESSAGE = JSON.stringify({
   status: 400,
   type: 'ADD_FRIEND_FAILED',
+  origin: ' ',
   message: 'Server error, adding friend failed',
+})
+
+exports.ADD_FRIEND_BE_REJECTET = JSON.stringify({
+  status: 400,
+  type: 'ADD_FRIEND_FAILED',
+  origin: ' ',
+  message: 'Your friend request was rejected',
 })
