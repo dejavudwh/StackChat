@@ -1,6 +1,7 @@
 const saveSocket = require('./handleSocket').saveSocket
 const sendFriendRequest = require('./friend').sendFriendRequest
 const addFriend = require('./friend').addFriend
+const obtainFriendList = require('./friend').addFriend
 const deleteSocket = require('./handleSocket').deleteSocket
 const findSocketFromEmail = require('./handleSocket').findSocketFromEmail
 const { ADD_FRIEND_BE_REJECTET } = require('../dao/constantInfo')
@@ -21,6 +22,10 @@ function socketService(socket) {
     } else {
       desk.socket.emit('add_friend_response', ADD_FRIEND_BE_REJECTET)
     }
+  })
+
+  socket.on('get_friend_list', (data) => {
+    obtainFriendList(data.email, socket)
   })
 
   socket.on('will_close', (closeUser) => {

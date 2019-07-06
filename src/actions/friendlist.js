@@ -1,11 +1,13 @@
-import { dispatch } from 'C:/Users/isHudw/AppData/Local/Microsoft/TypeScript/3.5/node_modules/rxjs/internal/observable/pairs'
-
-export const updateList = data => ({
-  type: 'NEW_MESSAGE',
-  origin: data.origin,
-  value: data.message,
+export const updateList = value => ({
+  type: 'UPDATE_FRIEND_LIST',
+  value,
 })
 
 export const socketFriends = () => (dispatch, getState) => {
-
+  const email = getState().login.email
+  const socket = getState().connect.socket
+  socket.emit('get_friend_list', { email })
+  socket.on('obtain_friend_list', (data) => {
+    dispatch(updateList(data))
+  })
 }
