@@ -9,8 +9,12 @@ const changeChatObj = (state, action) => {
   }
   if (action.type === 'UPDATE_CHATBAR') {
     return Object.assign({}, state, {
-      dest: action.dest,
       message: action.message,
+    })
+  }
+  if (action.type === 'CHANGE_SOCKET') {
+    return Object.assign({}, state, {
+      dest: action.dest,
     })
   }
   return state

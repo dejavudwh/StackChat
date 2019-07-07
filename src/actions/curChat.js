@@ -3,6 +3,11 @@ export const updateCharBar = () => ({
   dest: '',
 })
 
+export const changeDestSokcet = dest => ({
+  type: 'CHANGE_SOCKET',
+  dest,
+})
+
 export const socketCharMessage = () => ({
 
 })
