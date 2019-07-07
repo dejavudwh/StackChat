@@ -59,6 +59,16 @@ function obtainFriendList(useremail, socket) {
     })
 }
 
+function forwardedMessage({ origin, dest, input }) {
+  const destSocket = findSocketFromEmail(dest).socket
+  const data = {
+    origin,
+    message: input,
+  }
+  destSocket.emit('receive_message', data)
+}
+
 module.exports.addFriend = addFriendService
 module.exports.sendFriendRequest = sendFriendRequest
 module.exports.obtainFriendList = obtainFriendList
+module.exports.forwardedMessage = forwardedMessage

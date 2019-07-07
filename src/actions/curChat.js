@@ -20,8 +20,15 @@ export const sendMessage = () => (dispatch, getState) => {
   const socket = getState().connect.socket
 
   socket.emit('send_message', { origin, dest, input })
+  dispatch(changeInput(''))
   dispatch(updateCharBar())
 }
-export const socketCharMessage = () => ({
+export const socketCharMessage = () => (dispatch, getState) => {
+  setTimeout(() => {
+    const socket = getState().connect.socket
 
-})
+    socket.on('receive_message', (data) => {
+      console.log(data)
+    })
+  }, 500)
+}

@@ -1,6 +1,6 @@
 import { connect } from 'react-redux'
 import ChatBar from '../component/ChatBar'
-import { changeInput, sendMessage } from '../actions/curChat'
+import { changeInput, sendMessage, socketCharMessage } from '../actions/curChat'
 
 const mapStateToProps = state => ({
   destChat: state.chat.dest,
@@ -13,6 +13,9 @@ const mapDispatchToProps = dispatch => ({
   },
   sendMessage: () => {
     dispatch(sendMessage())
+  },
+  socketMessgae: () => {
+    dispatch(socketCharMessage())
   },
 })
 

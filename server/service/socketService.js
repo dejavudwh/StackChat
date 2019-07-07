@@ -2,6 +2,7 @@ const saveSocket = require('./handleSocket').saveSocket
 const sendFriendRequest = require('./friend').sendFriendRequest
 const addFriend = require('./friend').addFriend
 const obtainFriendList = require('./friend').obtainFriendList
+const forwardedMessage = require('./friend').forwardedMessage
 const deleteSocket = require('./handleSocket').deleteSocket
 const findSocketFromEmail = require('./handleSocket').findSocketFromEmail
 const { ADD_FRIEND_BE_REJECTET } = require('../dao/constantInfo')
@@ -28,6 +29,7 @@ function socketService(socket) {
 
   socket.on('send_message', (data) => {
     console.log(data)
+    forwardedMessage(data)
   })
 
   socket.on('will_close', (closeUser) => {

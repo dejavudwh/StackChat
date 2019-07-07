@@ -19,6 +19,10 @@ const styles = {
 }
 
 class ChatBar extends React.Component {
+  componentDidMount() {
+    this.props.socketMessgae()
+  }
+
   render() {
     return (
       <Paper className={this.props.classes.root}>
