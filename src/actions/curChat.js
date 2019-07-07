@@ -35,6 +35,12 @@ export const socketCharMessage = () => (dispatch, getState) => {
 
     socket.on('receive_message', (data) => {
       console.log(data)
+      const message = {
+        dest: data.origin,
+        input: data.message,
+        mesType: 'other',
+      }
+      dispatch(updateCharBar(message))
     })
   }, 500)
 }
