@@ -17,7 +17,7 @@ const useStyles = makeStyles(() => ({
   },
 }))
 
-export default function ChatInputField() {
+export default function ChatInputField(props) {
   const classes = useStyles()
 
   return (
@@ -25,9 +25,10 @@ export default function ChatInputField() {
       <TextField
         className={classes.TextField}
         label="Your message"
-        Full-width
         variant="outlined"
         id="mui-theme-provider-outlined-input"
+        value={props.value}
+        onChange={props.change}
       />
       <Button
         variant="contained"

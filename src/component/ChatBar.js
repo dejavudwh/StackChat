@@ -20,7 +20,6 @@ const styles = {
 
 class ChatBar extends React.Component {
   render() {
-    console.log('this.props.destChat', this.props)
     return (
       <Paper className={this.props.classes.root}>
         <ChatHeaderBox title={this.props.destChat} />
@@ -32,7 +31,7 @@ class ChatBar extends React.Component {
           <Message />
           <Message />
         </Scrollbars>
-        <ChatInputField />
+        <ChatInputField value={this.props.input} change={this.props.changInput} />
       </Paper>
     )
   }

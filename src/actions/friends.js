@@ -1,5 +1,3 @@
-const { dialog } = require('electron').remote
-
 export const addFriendSuccess = () => {
 
 }

@@ -1,5 +1,6 @@
 const initialState = {
   dest: '',
+  input: '',
   message: '',
 }
 
@@ -15,6 +16,11 @@ const changeChatObj = (state, action) => {
   if (action.type === 'CHANGE_SOCKET') {
     return Object.assign({}, state, {
       dest: action.dest,
+    })
+  }
+  if (action.type === 'CHANGE_CHAT_INPUT') {
+    return Object.assign({}, state, {
+      input: action.value,
     })
   }
   return state

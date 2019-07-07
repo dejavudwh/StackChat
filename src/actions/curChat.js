@@ -8,6 +8,11 @@ export const changeDestSokcet = dest => ({
   dest,
 })
 
+export const changeInput = value => ({
+  type: 'CHANGE_CHAT_INPUT',
+  value,
+})
+
 export const socketCharMessage = () => ({
 
 })
