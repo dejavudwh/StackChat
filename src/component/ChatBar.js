@@ -24,16 +24,22 @@ class ChatBar extends React.Component {
   }
 
   render() {
+    const dest = this.props.destChat
+    console.log('dest', dest)
+    const messageList = this.props.messageList.filter(message => message.dest === dest)
+    const message = messageList.map((mes) => {
+      if (mes.type === 'self') {
+        return <SelfMessage value={mes.value} />
+      }
+      return <Message value={mes.value} />
+    })
+    console.log('messageList ', messageList)
+    console.log('message ', message)
     return (
       <Paper className={this.props.classes.root}>
         <ChatHeaderBox title={this.props.destChat} />
         <Scrollbars style={{ width: 520, height: 435 }}>
-          <Message />
-          <SelfMessage />
-          <SelfMessage />
-          <SelfMessage />
-          <Message />
-          <Message />
+          {message}
         </Scrollbars>
         <ChatInputField value={this.props.input} change={this.props.changInput} send={this.props.sendMessage} />
       </Paper>

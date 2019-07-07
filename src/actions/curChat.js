@@ -1,6 +1,8 @@
-export const updateCharBar = () => ({
+export const updateCharBar = data => ({
   type: 'UPDATE_CHATBAR',
-  dest: '',
+  dest: data.dest,
+  value: data.input,
+  mesType: data.mesType,
 })
 
 export const changeDestSokcet = dest => ({
@@ -18,10 +20,14 @@ export const sendMessage = () => (dispatch, getState) => {
   const dest = getState().chat.dest
   const input = getState().chat.input
   const socket = getState().connect.socket
-
   socket.emit('send_message', { origin, dest, input })
+  const data = {
+    dest,
+    input,
+    mesType: 'self',
+  }
   dispatch(changeInput(''))
-  dispatch(updateCharBar())
+  dispatch(updateCharBar(data))
 }
 export const socketCharMessage = () => (dispatch, getState) => {
   setTimeout(() => {

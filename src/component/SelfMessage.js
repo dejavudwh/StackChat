@@ -28,14 +28,14 @@ const useStyles = makeStyles(() => ({
   },
 }))
 
-export default function Message() {
+export default function Message(props) {
   const classes = useStyles()
 
   return (
     <div className={classes.root}>
       <Paper className={classes.Content}>
         <Typography>
-          <p>Life s but a walking shadow, a poor player.</p>
+          <p>{props.value}</p>
         </Typography>
       </Paper>
       <Avatar className={classes.Avatar} src={AvatarImg} />

@@ -5,6 +5,7 @@ import { changeInput, sendMessage, socketCharMessage } from '../actions/curChat'
 const mapStateToProps = state => ({
   destChat: state.chat.dest,
   input: state.chat.input,
+  messageList: state.chat.message,
 })
 
 const mapDispatchToProps = dispatch => ({

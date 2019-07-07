@@ -27,7 +27,7 @@ const useStyle = makeStyles(() => ({
   },
 }))
 
-export default function Message() {
+export default function Message(props) {
   const classes = useStyle()
 
   return (
@@ -35,7 +35,7 @@ export default function Message() {
       <Avatar className={classes.Avatar} src={AvatarImg} />
       <Paper className={classes.Content}>
         <Typography>
-          <p>Life s but a walking shadow, a poor player. That struts and frets his hour upon the stage, And then is heard no more. It is a tale. Told by an idiot, full of sound and fury, ...</p>
+          <p>{props.value}</p>
         </Typography>
       </Paper>
     </div>
