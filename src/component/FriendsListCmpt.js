@@ -49,7 +49,6 @@ class FriendsListCmpt extends React.Component {
   }
 
   handleClick = (email) => {
-    // alert(email)
     this.props.changeDestSocket(email)
   }
 

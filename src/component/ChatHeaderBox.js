@@ -31,15 +31,15 @@ const useStyle = makeStyles(() => ({
   },
 }))
 
-export default function ChatHeaderBox() {
+export default function ChatHeaderBox(props) {
   const classes = useStyle()
-
+  console.log(props.title)
   return (
     <div className={classes.root}>
       <Avatar className={classes.Avatar} src={AvatarImg} />
       <div className={classes.HeadName}>
         <Typography align="left" variant="overline">
-          {'Cristiano Ronaldoa'}
+          {props.title}
         </Typography>
       </div>
       <IconButton className={classes.IconButton} size="medium">

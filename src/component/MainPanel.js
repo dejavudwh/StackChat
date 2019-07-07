@@ -1,7 +1,7 @@
 import React from 'react'
 import LeftNav from './LeftNav'
 import SocialBar from './SocialBar'
-import ChatBar from './ChatBar'
+import CharObj from '../container/ChatObj'
 import Sidebar from './Sidebar'
 import InfoTable from './InfoTable'
 import AddressBook from './AddressBook'
@@ -52,7 +52,7 @@ class MainPanel extends React.Component {
       <div>
         <LeftNav onChangeLeft={this.changeLeftSidebar} onChangeRight={this.changeRightSidebar} />
         {this.componentMap[this.state.LeftSidebar]}
-        <ChatBar />
+        <CharObj />
         <Sidebar species={this.state.RightSidebar} />
       </div>
     )

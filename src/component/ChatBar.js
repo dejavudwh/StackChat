@@ -20,9 +20,10 @@ const styles = {
 
 class ChatBar extends React.Component {
   render() {
+    console.log('this.props.destChat', this.props)
     return (
       <Paper className={this.props.classes.root}>
-        <ChatHeaderBox />
+        <ChatHeaderBox title={this.props.destChat} />
         <Scrollbars style={{ width: 520, height: 435 }}>
           <Message />
           <SelfMessage />
