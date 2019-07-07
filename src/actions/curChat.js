@@ -3,7 +3,6 @@ export const updateCharBar = () => ({
   dest: '',
 })
 
-export const updateCharObj = () => ({
-  type: 'UPDATE_CHATBAR',
-  dest: '',
+export const socketCharMessage = () => ({
+
 })

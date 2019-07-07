@@ -5,6 +5,7 @@ import searchFriend from './addFriend'
 import connectSocket from './connectSocket'
 import addNewMessage from './notice'
 import updateFriendList from './friendlist'
+import changeChar from './changeChat'
 
 export default combineReducers({
   register: registerChange,
@@ -13,4 +14,5 @@ export default combineReducers({
   connect: connectSocket,
   notification: addNewMessage,
   friends: updateFriendList,
+  chat: changeChar,
 })
