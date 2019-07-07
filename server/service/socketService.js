@@ -23,8 +23,11 @@ function socketService(socket) {
   })
 
   socket.on('get_friend_list', (data) => {
-    console.log('server get friend list')
     obtainFriendList(data.email, socket)
+  })
+
+  socket.on('send_message', (data) => {
+    console.log(data)
   })
 
   socket.on('will_close', (closeUser) => {

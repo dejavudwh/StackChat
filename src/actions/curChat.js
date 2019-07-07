@@ -13,6 +13,15 @@ export const changeInput = value => ({
   value,
 })
 
+export const sendMessage = () => (dispatch, getState) => {
+  const origin = getState().login.email
+  const dest = getState().chat.dest
+  const input = getState().chat.input
+  const socket = getState().connect.socket
+
+  socket.emit('send_message', { origin, dest, input })
+  dispatch(updateCharBar())
+}
 export const socketCharMessage = () => ({
 
 })

@@ -31,7 +31,7 @@ class ChatBar extends React.Component {
           <Message />
           <Message />
         </Scrollbars>
-        <ChatInputField value={this.props.input} change={this.props.changInput} />
+        <ChatInputField value={this.props.input} change={this.props.changInput} send={this.props.sendMessage} />
       </Paper>
     )
   }

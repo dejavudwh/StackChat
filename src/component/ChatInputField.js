@@ -34,6 +34,7 @@ export default function ChatInputField(props) {
         variant="contained"
         color="primary"
         className={classes.button}
+        onClick={props.send}
       >
         {'SEND'}
       </Button>
