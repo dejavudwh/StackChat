@@ -1,4 +1,4 @@
-import { browserHistory } from 'react-router'
+import { hashHistory } from 'react-router'
 
 const { dialog } = require('electron').remote
 
@@ -44,7 +44,7 @@ export const signInUser = () => (dispatch, getState) => {
     .then((response) => {
       if (response.status === 200) {
         const path = '/home'
-        browserHistory.push(path)
+        hashHistory.push(path)
         dispatch(signInSuccess())
       } else if (response.status === 400) {
         dialog.showMessageBox({

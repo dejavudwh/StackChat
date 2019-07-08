@@ -34,7 +34,21 @@ cd server
 node app.js
 
 //Client start
-//There is no build,for later modification so hot deployment needs to be started
+//To start hot deployment to run the project
 npm start
 npm run main
+```
+
+```JavaScript
+//After the build
+npm run build
+
+//in main.js
+
++ win.loadURL(url.format({ pathname: path.join(__dirname, './build/index.html'), protocol: 'file:', slashes: true }))
+
+- win.loadURL('http://localhost:3000')
+
+npm run main
+
 ```

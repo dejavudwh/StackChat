@@ -2,7 +2,7 @@ import React from 'react'
 import ReactDOM from 'react-dom'
 import './index.css'
 import {
-  Router, Route, browserHistory, IndexRoute,
+  Router, Route, hashHistory, IndexRoute,
 } from 'react-router'
 import { createStore, applyMiddleware } from 'redux'
 import { Provider } from 'react-redux'
@@ -34,7 +34,7 @@ const unsubscribe = store.subscribe(() => console.log(store.getState()))
 
 ReactDOM.render((
   <Provider store={store}>
-    <Router history={browserHistory}>
+    <Router history={hashHistory}>
       <Route path="/" component={App}>
         <IndexRoute component={Login} />
         <Route path="/home" component={Panel} />

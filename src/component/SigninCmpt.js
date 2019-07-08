@@ -1,5 +1,5 @@
 import React from 'react'
-import { browserHistory } from 'react-router'
+import { hashHistory } from 'react-router'
 import {
   Avatar,
   CssBaseline,
@@ -47,7 +47,7 @@ class SigninCmpt extends React.Component {
   handleClick(event) {
     event.preventDefault()
     const path = '/home'
-    browserHistory.push(path)
+    hashHistory.push(path)
   }
 
   changeSignup() {
