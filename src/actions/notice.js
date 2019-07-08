@@ -25,7 +25,6 @@ export const waitNotice = () => (dispatch, getState) => {
       })
       socket.on('add_friend_response', (data) => {
         const res = JSON.parse(data)
-        console.log('add_friend_response', res)
         dispatch(newMessage(res))
       })
     }
@@ -41,6 +40,5 @@ export const responseMessage = pick => (dispatch, getState) => {
     },
   }
   const socket = getState().connect.socket
-  console.log('fuck response add r')
   socket.emit('add_friend_response', response)
 }

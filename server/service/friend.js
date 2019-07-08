@@ -11,13 +11,11 @@ function addFriendService(origin, dest, socket) {
   mongonConnect
     .then(db => addFriend(db, { origin, dest }))
     .then((message) => {
-      console.log('message', message)
       if (message === ADD_FRIEND_SUCCESS) {
         socket.emit('add_friend_response', ADD_FRIEND_SUCCESS_MESSAGE)
       }
     })
     .catch((message) => {
-      console.log(message)
       if (message === USER_NO_EXIST) {
         socket.emit('add_friend_response', USER_NO_EXIST_MESSAGE)
       } else if (message === ADD_FRIEND_FAILED) {
@@ -31,7 +29,6 @@ function sendFriendRequest({ origin, dest }, socket) {
     .then(db => findFriend(db, dest))
     .then(() => {
       const destUser = findSocketFromEmail(dest)
-      console.log(destUser.user)
       const mr = {
         origin,
         message: `Friend add request from ${origin}`,
@@ -39,7 +36,6 @@ function sendFriendRequest({ origin, dest }, socket) {
       destUser.socket.emit('add_friend_request', mr)
     })
     .catch((message) => {
-      console.log(message)
       if (message === USER_NO_EXIST) {
         socket.emit('add_friend_response', USER_NO_EXIST_MESSAGE)
       } else if (message === ADD_FRIEND_FAILED) {
