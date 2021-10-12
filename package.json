@@ -90,7 +90,7 @@
     "babel-eslint": "^10.0.1",
     "body-parser": "^1.19.0",
     "cors": "^2.8.5",
-    "electron": "^5.0.5",
+    "electron": "^11.5.0",
     "eslint": "^5.16.0",
     "eslint-config-airbnb": "^17.1.0",
     "eslint-config-prettier": "^6.0.0",
